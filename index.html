@@ -12,41 +12,47 @@
             background-color: #f4f4f4;
             color: #333;
         }
+
         header {
-            background-color: #ffffff; /* Fondo blanco para el logo */
+            background-color: #ffffff;
             text-align: center;
-            padding: 20px;
+            padding: 20px 0 10px;
         }
+
         header img {
             width: 150px;
+            margin-bottom: 10px;
         }
-        .header-bar {
-            background-color: #f72585; /* Fucsia */
-            color: #fff;
-            padding: 10px 0;
-        }
-        .header-bar p {
+
+        .subtitle {
+            text-align: center;
+            background-color: #f72585;
+            color: white;
+            font-size: 1rem;
+            padding: 10px;
             margin: 0;
         }
+
         nav {
-            background-color: #fefefe;
             text-align: center;
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin: 1rem 0;
         }
+
         nav a {
             margin: 0 15px;
             text-decoration: none;
             color: #f72585;
             font-weight: bold;
         }
+
         main {
             padding: 2rem;
             max-width: 800px;
             margin: auto;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+
         footer {
             text-align: center;
             padding: 1rem 0;
@@ -54,6 +60,7 @@
             color: #fff;
             margin-top: 2rem;
         }
+
         .button {
             display: inline-block;
             padding: 10px 20px;
@@ -63,6 +70,7 @@
             text-decoration: none;
             border-radius: 5px;
         }
+
         .button:hover {
             background-color: #d4166c;
         }
@@ -72,19 +80,20 @@
     <header>
         <img src="logo-aurosanax.png" alt="Logo de Aurosanax">
     </header>
-    <div class="header-bar">
-        <p>Centro Médico Especializado en Salud Femenina</p>
-    </div>
+    <p class="subtitle">Centro Médico Especializado en Salud Femenina</p>
+
     <nav>
         <a href="#about">Nosotros</a>
         <a href="#services">Servicios</a>
         <a href="#contact">Contacto</a>
     </nav>
+
     <main>
         <section id="about">
             <h2>Sobre Nosotros</h2>
             <p>En Aurosanax, nos especializamos en ginecología funcional, regenerativa y estética, ofreciendo a nuestras pacientes en Guayaquil, Ecuador, una atención médica de calidad enfocada en su bienestar integral.</p>
         </section>
+
         <section id="services">
             <h2>Nuestros Servicios</h2>
             <ul>
@@ -93,12 +102,14 @@
                 <li>Procedimientos estéticos ginecológicos</li>
             </ul>
         </section>
+
         <section id="contact">
             <h2>Contacto</h2>
             <p>Para más información o para agendar una cita, contáctanos a través de WhatsApp:</p>
             <a href="https://wa.me/593984567660" class="button">Enviar mensaje</a>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2025 Aurosanax. Todos los derechos reservados.</p>
     </footer>
