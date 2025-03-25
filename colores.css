@@ -1,47 +1,69 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aurosanax</title>
-    <link rel="stylesheet" href="colores.css">
-</head>
-<body>
-    <header>
-        <h1>Aurosanax</h1>
-        <p>Centro Médico Especializado en Salud Femenina</p>
-    </header>
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333333;
+}
 
-    <nav>
-        <a href="#about">Nosotros</a>
-        <a href="#services">Servicios</a>
-        <a href="#contact">Contacto</a>
-    </nav>
+header {
+  background-color: #e91e63;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
 
-    <main>
-        <section id="about">
-            <h2>Sobre Nosotros</h2>
-            <p>En Aurosanax, nos especializamos en ginecología funcional, regenerativa y estética, ofreciendo a nuestras pacientes en Guayaquil, Ecuador, una atención médica de calidad enfocada en su bienestar integral.</p>
-        </section>
+header img {
+  width: 100px;
+  margin-bottom: 10px;
+}
 
-        <section id="services">
-            <h2>Nuestros Servicios</h2>
-            <ul>
-                <li>Consultas de ginecología funcional</li>
-                <li>Tratamientos regenerativos</li>
-                <li>Procedimientos estéticos ginecológicos</li>
-            </ul>
-        </section>
+nav {
+  text-align: center;
+  margin: 1rem 0;
+}
 
-        <section id="contact">
-            <h2>Contacto</h2>
-            <p>Para más información o para agendar una cita, contáctanos a través de WhatsApp:</p>
-            <a href="https://wa.me/593984567666" class="button">Enviar mensaje</a>
-        </section>
-    </main>
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #e91e63;
+  font-weight: bold;
+}
 
-    <footer>
-        <p>&copy; 2025 Aurosanax. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+nav a:hover {
+  color: #ff8a80;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: #e91e63;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #212121;
+  color: white;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #e91e63;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ff8a80;
+}
