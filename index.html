@@ -1,175 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aurosanax - Salud Femenina</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fdfdfd;
+      background-color: #f4f4f4;
       color: #333;
     }
 
     header {
-      background-color: #f72585;
-      color: #fff;
-      padding: 2rem 1rem;
+      background-color: #ffffff;
+      padding: 1rem 0 0.5rem;
       text-align: center;
     }
 
     header img {
-      width: 100px;
-      margin-bottom: 10px;
+      width: 120px;
+      margin-bottom: 5px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: normal;
+      color: #555;
+    }
+
+    .subheader {
+      background-color: #ff35ff;
+      color: white;
+      padding: 0.7rem 0;
+      font-weight: bold;
     }
 
     nav {
-      background-color: #fde8f2;
+      background-color: #ffffff;
       text-align: center;
-      padding: 1rem 0;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid #ff35ff;
     }
 
     nav a {
-      margin: 0 20px;
+      margin: 0 15px;
       text-decoration: none;
-      color: #f72585;
+      color: #ff35ff;
       font-weight: bold;
     }
 
     main {
       padding: 2rem;
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
-    }
-
-    section {
-      margin-bottom: 2.5rem;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
     h2 {
-      color: #f72585;
-      border-bottom: 2px solid #f72585;
-      padding-bottom: 5px;
-    }
-
-    h3 {
-      color: #b5179e;
-      margin-top: 1.5rem;
+      color: #cc0099;
+      border-bottom: 2px solid #ff35ff;
+      padding-bottom: 0.3rem;
     }
 
     ul {
-      list-style-type: disc;
       padding-left: 20px;
     }
 
     footer {
       text-align: center;
       padding: 1rem;
-      background-color: #f72585;
-      color: #fff;
+      background-color: #ff35ff;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    .button {
+      background-color: #cc0099;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .button:hover {
+      background-color: #b30086;
     }
   </style>
 </head>
 <body>
+
   <header>
     <img src="logo-aurosanax.png" alt="Logo de Aurosanax">
-    <p>Centro Médico Especializado en Salud Femenina</p>
+    <h1>Al cuidado de la mujer</h1>
   </header>
 
+  <div class="subheader">
+    Centro Médico Especializado en Salud Femenina
+  </div>
+
   <nav>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#about">Nosotros</a>
+    <a href="#services">Servicios</a>
+    <a href="#contact">Contacto</a>
   </nav>
 
   <main>
-    <section id="nosotros">
+    <section id="about">
       <h2>Sobre Nosotros</h2>
       <p>En Aurosanax, nos especializamos en ginecología funcional, regenerativa y estética, ofreciendo a nuestras pacientes en Guayaquil, Ecuador, una atención médica de calidad enfocada en su bienestar integral.</p>
     </section>
 
-    <section id="servicios">
+    <section id="services">
       <h2>Servicios</h2>
-
-      <h3>Ginecología General</h3>
       <ul>
-        <li>Consulta ginecológica integral</li>
-        <li>Control ginecológico anual</li>
-        <li>Papanicolaou (convencional y líquido)</li>
-        <li>Colposcopía</li>
-        <li>Biopsia de cuello uterino</li>
-        <li>Genotipificación de VPH</li>
-        <li>Diagnóstico y tratamiento de infecciones vaginales</li>
-        <li>Asesoría en anticoncepción</li>
-        <li>Manejo de síndrome de ovario poliquístico</li>
-        <li>Menopausia y climaterio</li>
-        <li>Control de flujo vaginal anormal</li>
-      </ul>
-
-      <h3>Obstetricia</h3>
-      <ul>
-        <li>Consulta obstétrica (embarazo)</li>
-        <li>Controles prenatales</li>
-        <li>Ecografías obstétricas</li>
-        <li>Planificación del parto</li>
-        <li>Educación prenatal</li>
-        <li>Manejo de embarazos de bajo riesgo</li>
-        <li>Seguimiento postparto</li>
-      </ul>
-
-      <h3>Estética General</h3>
-      <ul>
-        <li>Limpieza facial profunda</li>
-        <li>Peeling químico</li>
-        <li>Microneedling (Dermapen)</li>
-        <li>Plasma rico en plaquetas (PRP)</li>
-        <li>Ácido hialurónico facial</li>
-        <li>Botox</li>
-        <li>Tratamientos para manchas y acné</li>
-        <li>Terapias antienvejecimiento</li>
-      </ul>
-
-      <h3>Estética Íntima</h3>
-      <ul>
-        <li>Labioplastía (cirugía íntima)</li>
-        <li>Rejuvenecimiento vaginal</li>
-        <li>Blanqueamiento genital</li>
-        <li>Hidratación íntima</li>
-        <li>Estética vulvar no invasiva</li>
-      </ul>
-
-      <h3>Terapias con Sueros</h3>
-      <ul>
-        <li>Suero regenerativo celular</li>
-        <li>Suero inmunológico</li>
-        <li>Suero energizante</li>
-        <li>Suero detox</li>
-        <li>Suero antienvejecimiento</li>
-        <li>Suero capilar</li>
-        <li>Suero para piel luminosa</li>
-      </ul>
-
-      <h3>Servicios Complementarios</h3>
-      <ul>
-        <li>Charlas educativas para mujeres</li>
-        <li>Valoración médica personalizada</li>
-        <li>Recomendaciones de estilo de vida saludable</li>
-        <li>Asesoría nutricional básica</li>
-        <li>Programas integrales de salud femenina</li>
+        <li>Ginecología general</li>
+        <li>Ginecología regenerativa</li>
+        <li>Estética ginecológica</li>
+        <li>Exámenes de Papanicolaou y colposcopía</li>
+        <li>Control de infecciones vaginales</li>
+        <li>Tratamientos hormonales</li>
+        <li>Bienestar íntimo femenino</li>
       </ul>
     </section>
 
-    <section id="contacto">
+    <section id="contact">
       <h2>Contacto</h2>
-      <p>Para más información o agendar una cita, contáctanos por WhatsApp:</p>
-      <a class="button" href="https://wa.me/593984567660">Enviar mensaje</a>
+      <p>Para más información o agendar una cita, contáctanos a través de WhatsApp:</p>
+      <a href="https://wa.me/593984567660" class="button">Enviar mensaje</a>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Aurosanax. Todos los derechos reservados.</p>
   </footer>
+
 </body>
 </html>
