@@ -1,60 +1,47 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    color: #222222;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurosanax</title>
+    <link rel="stylesheet" href="colores.css">
+</head>
+<body>
+    <header>
+        <h1>Aurosanax</h1>
+        <p>Centro Médico Especializado en Salud Femenina</p>
+    </header>
 
-header {
-    background-color: #ff00b7;
-    color: white;
-    padding: 1.5rem 0;
-    text-align: center;
-}
+    <nav>
+        <a href="#about">Nosotros</a>
+        <a href="#services">Servicios</a>
+        <a href="#contact">Contacto</a>
+    </nav>
 
-nav {
-    text-align: center;
-    margin: 1rem 0;
-}
+    <main>
+        <section id="about">
+            <h2>Sobre Nosotros</h2>
+            <p>En Aurosanax, nos especializamos en ginecología funcional, regenerativa y estética, ofreciendo a nuestras pacientes en Guayaquil, Ecuador, una atención médica de calidad enfocada en su bienestar integral.</p>
+        </section>
 
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #ff00b7;
-    font-weight: bold;
-}
+        <section id="services">
+            <h2>Nuestros Servicios</h2>
+            <ul>
+                <li>Consultas de ginecología funcional</li>
+                <li>Tratamientos regenerativos</li>
+                <li>Procedimientos estéticos ginecológicos</li>
+            </ul>
+        </section>
 
-nav a:hover {
-    color: #222222;
-}
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p>Para más información o para agendar una cita, contáctanos a través de WhatsApp:</p>
+            <a href="https://wa.me/593984567666" class="button">Enviar mensaje</a>
+        </section>
+    </main>
 
-main {
-    padding: 2rem;
-    max-width: 800px;
-    margin: auto;
-    background-color: #fdfdfd;
-    color: #333333;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background-color: #222222;
-    color: #fff;
-}
-
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ff00b7;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.button:hover {
-    background-color: #d1009d;
-}
+    <footer>
+        <p>&copy; 2025 Aurosanax. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
