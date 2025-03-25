@@ -13,30 +13,39 @@
             color: #333;
         }
         header {
-            background-color: #f72585;
-            color: #fff;
-            padding: 1rem 0;
+            background-color: #ffffff; /* Fondo blanco para el logo */
             text-align: center;
+            padding: 20px;
         }
         header img {
-            width: 100px;
-            margin-bottom: 10px;
+            width: 150px;
+        }
+        .header-bar {
+            background-color: #f72585; /* Fucsia */
+            color: #fff;
+            padding: 10px 0;
+        }
+        .header-bar p {
+            margin: 0;
         }
         nav {
+            background-color: #fefefe;
             text-align: center;
-            margin: 1rem 0;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         nav a {
             margin: 0 15px;
             text-decoration: none;
             color: #f72585;
+            font-weight: bold;
         }
         main {
             padding: 2rem;
             max-width: 800px;
             margin: auto;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
         }
         footer {
             text-align: center;
@@ -62,9 +71,10 @@
 <body>
     <header>
         <img src="logo-aurosanax.png" alt="Logo de Aurosanax">
-        <h1>Aurosanax</h1>
-        <p>Centro Médico Especializado en Salud Femenina</p>
     </header>
+    <div class="header-bar">
+        <p>Centro Médico Especializado en Salud Femenina</p>
+    </div>
     <nav>
         <a href="#about">Nosotros</a>
         <a href="#services">Servicios</a>
