@@ -2,15 +2,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #f77737, #c13584, #833ab4); /* Degradado estilo Instagram */
-    color: #fff;
+    background-color: #ffffff;
+    color: #222222;
 }
 
 header {
-    background-color: #833ab4;
-    padding: 1rem 0;
-    text-align: center;
+    background-color: #ff00b7;
     color: white;
+    padding: 1.5rem 0;
+    text-align: center;
 }
 
 nav {
@@ -21,35 +21,40 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #ffdc80;
+    color: #ff00b7;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #222222;
 }
 
 main {
     padding: 2rem;
     max-width: 800px;
     margin: auto;
-    background-color: white;
-    color: #333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fdfdfd;
+    color: #333333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
 footer {
     text-align: center;
     padding: 1rem 0;
-    background-color: #405de6;
-    color: white;
+    background-color: #222222;
+    color: #fff;
 }
 
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #c13584;
+    background-color: #ff00b7;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    font-weight: bold;
 }
 
 .button:hover {
-    background-color: #f77737;
+    background-color: #d1009d;
 }
-
