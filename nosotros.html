@@ -36,6 +36,35 @@
     section {
       margin-bottom: 2rem;
     }
+    ul {
+      padding-left: 20px;
+    }
+    .video-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    video {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+      border: 2px solid #b30059;
+    }
+    .button {
+      display: inline-block;
+      background-color: #b30059;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .button:hover {
+      background-color: #99004d;
+    }
+    .button-container {
+      text-align: center;
+    }
     footer {
       background-color: #f4f4f4;
       text-align: center;
@@ -84,6 +113,17 @@
         <li>Empatía</li>
       </ul>
     </section>
+
+    <div class="video-container">
+      <video controls>
+        <source src="video-nosotros.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </div>
+
+    <div class="button-container">
+      <a href="index.html" class="button">Volver al Inicio</a>
+    </div>
   </main>
 
   <footer>
