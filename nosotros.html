@@ -12,95 +12,32 @@
       background-color: #ffffff;
       color: #333;
     }
-
     header {
-      position: relative;
       text-align: center;
       padding: 2rem 1rem 1rem;
     }
-
-    header img.logo {
+    header img {
       width: 120px;
       margin-bottom: 10px;
     }
-
     header p {
       font-size: 1.1rem;
       color: #b30059;
       margin: 0;
     }
-
-    .imagen-esquina {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 100px;
-      height: auto;
-      z-index: 1;
-    }
-
-    .botones-esquina {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .botones-esquina a {
-      background-color: #b30059;
-      color: white;
-      text-decoration: none;
-      padding: 8px 15px;
-      border-radius: 5px;
-      font-size: 0.9rem;
-    }
-
-    .botones-esquina a:hover {
-      background-color: #99004d;
-    }
-
     main {
       max-width: 900px;
       margin: auto;
       padding: 2rem;
+      position: relative;
+      z-index: 1;
     }
-
     h1, h2 {
       color: #b30059;
     }
-
     section {
       margin-bottom: 2rem;
     }
-
-    video {
-      display: block;
-      margin: 2rem auto;
-      border: 2px solid #b30059;
-      border-radius: 10px;
-      max-width: 100%;
-      height: auto;
-    }
-
-    .volver-inicio-abajo {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .volver-inicio-abajo a {
-      background-color: #b30059;
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .volver-inicio-abajo a:hover {
-      background-color: #99004d;
-    }
-
     footer {
       background-color: #f4f4f4;
       text-align: center;
@@ -109,16 +46,39 @@
       margin-top: 3rem;
       color: #555;
     }
+    .img-deco {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 250px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      opacity: 0.95;
+      z-index: 0;
+    }
+    .boton-volver {
+      display: block;
+      width: fit-content;
+      margin: 2rem auto 0;
+      background-color: #b30059;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .boton-volver:hover {
+      background-color: #99004d;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Imagen decorativa -->
+  <img src="fondo1.png" alt="Decoración médica" class="img-deco" />
+
   <header>
-    <img src="fondo1.png" class="imagen-esquina" alt="Decoración médica" />
-    <div class="botones-esquina">
-      <a href="index.html">Volver al Inicio</a>
-      <a href="https://wa.me/593984567660" target="_blank">Agenda tu cita</a>
-    </div>
-    <img src="logo-aurosanax.png" alt="Logo de Aurosanax" class="logo" />
+    <img src="logo-aurosanax.png" alt="Logo de Aurosanax" />
     <p>Centro Médico Especializado en Salud Femenina</p>
   </header>
 
@@ -155,14 +115,8 @@
       </ul>
     </section>
 
-    <video controls poster="Fondo 1.png">
-      <source src="video-nosotros.mp4" type="video/mp4" />
-      Tu navegador no soporta el elemento de video.
-    </video>
-
-    <div class="volver-inicio-abajo">
-      <a href="index.html">Volver al Inicio</a>
-    </div>
+    <!-- Botón de volver al inicio -->
+    <a href="index.html" class="boton-volver">Volver al Inicio</a>
   </main>
 
   <footer>
