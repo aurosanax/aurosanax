@@ -7,139 +7,167 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
 
-  <title>Ginecología y Salud Femenina en Guayaquil | AUROSANAX</title>
-  <meta name="description" content="AUROSANAX, consultorio médico especializado en ginecología y salud femenina en Guayaquil. Atención profesional con cita previa.">
-
-  <meta property="og:title" content="AUROSANAX - Salud Femenina en Guayaquil">
-  <meta property="og:description" content="Consultorio médico especializado en ginecología, salud femenina y valoración médica personalizada.">
-  <meta property="og:image" content="logo-aurosanax.png">
-  <meta property="og:type" content="website">
+  <title>Salud Femenina Integral en Guayaquil | AUROSANAX</title>
+  <meta name="description" content="AUROSANAX, consultorio médico especializado en ginecología y salud femenina en Guayaquil, Ecuador. Atención profesional con cita previa.">
 
   <style>
+    :root {
+      --fucsia: #d63384;
+      --fucsia-claro: #f06292;
+      --fucsia-oscuro: #b8206f;
+      --rosado-suave: #fff0f7;
+      --borde-rosado: #f4c7dc;
+      --texto: #333333;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #ffffff;
-      color: #333;
+      background: #ffffff;
+      color: var(--texto);
       line-height: 1.6;
     }
 
     header {
       text-align: center;
-      padding: 2rem 1rem 1rem;
+      padding: 1.8rem 1rem 1rem;
+      background: linear-gradient(180deg, var(--rosado-suave), #ffffff);
     }
 
     header img {
-      width: 120px;
-      margin-bottom: 10px;
+      width: 125px;
+      margin-bottom: 8px;
     }
 
     header p {
-      font-size: 1.1rem;
-      color: #b30059;
+      color: var(--fucsia-oscuro);
+      font-weight: bold;
       margin: 0;
     }
 
-    .hero {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      background: #fff5fa;
-    }
-
-    .hero h1 {
-      color: #b30059;
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 1rem;
-    }
-
     nav {
-      background-color: #b30059;
+      background: linear-gradient(90deg, var(--fucsia-oscuro), var(--fucsia), var(--fucsia-claro));
       text-align: center;
-      padding: 10px 0;
+      padding: 12px 5px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
-      margin: 0 15px;
+      margin: 0 14px;
       font-weight: bold;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .hero {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-box {
+      background: linear-gradient(180deg, #fff7fb, var(--rosado-suave));
+      border-radius: 18px;
+      padding: 2.5rem 1.5rem;
+      box-shadow: 0 8px 25px rgba(214, 51, 132, 0.14);
+      border: 1px solid var(--borde-rosado);
+    }
+
+    h1 {
+      color: var(--fucsia-oscuro);
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 1.2rem;
+      font-size: 1rem;
     }
 
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-      padding: 2rem;
+      padding: 1.5rem;
     }
 
     section {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.8rem;
     }
 
     h2 {
-      border-bottom: 2px solid #b30059;
-      padding-bottom: 5px;
-      color: #b30059;
+      color: var(--fucsia-oscuro);
+      border-bottom: 2px solid var(--fucsia);
+      padding-bottom: 6px;
     }
 
-    h3 {
-      color: #b30059;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
       margin-top: 1.5rem;
     }
 
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--borde-rosado);
+      border-radius: 14px;
+      padding: 1.2rem;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+    }
+
+    .card h3 {
+      color: var(--fucsia-oscuro);
+      margin-top: 0;
+    }
+
     ul {
-      list-style: disc;
       padding-left: 20px;
     }
 
-    .note {
-      background: #fff5fa;
-      border-left: 4px solid #b30059;
+    .notice {
+      background: var(--rosado-suave);
+      border-left: 5px solid var(--fucsia);
       padding: 1rem;
-      margin-top: 1rem;
-      border-radius: 5px;
+      border-radius: 8px;
+      margin-top: 1.5rem;
     }
 
     .button {
       display: inline-block;
-      background-color: #b30059;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
+      background: linear-gradient(90deg, var(--fucsia-oscuro), var(--fucsia-claro));
+      color: #fff;
+      padding: 11px 22px;
+      border-radius: 25px;
       text-decoration: none;
+      font-weight: bold;
       margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(214, 51, 132, 0.25);
     }
 
     .button:hover {
-      background-color: #99004d;
+      background: linear-gradient(90deg, #a71963, #e8528a);
     }
 
     .whatsapp-float {
       position: fixed;
       right: 18px;
       bottom: 18px;
-      background-color: #b30059;
+      background: linear-gradient(90deg, var(--fucsia-oscuro), var(--fucsia-claro));
       color: white;
-      padding: 13px 16px;
+      padding: 13px 18px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      box-shadow: 0 5px 16px rgba(0,0,0,0.28);
       z-index: 999;
     }
 
     footer {
-      background-color: #f4f4f4;
+      background: #f4f4f4;
       text-align: center;
       font-size: 0.9rem;
       padding: 2rem 1rem;
@@ -148,22 +176,31 @@
     }
 
     footer h4 {
-      margin-top: 2rem;
-      color: #b30059;
+      color: var(--fucsia-oscuro);
+      margin-top: 1.5rem;
     }
 
     @media (max-width: 600px) {
       nav a {
         display: inline-block;
-        margin: 6px 10px;
+        margin: 5px 9px;
+        font-size: 0.95rem;
+      }
+
+      h1 {
+        font-size: 1.55rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .hero-box {
+        padding: 2rem 1rem;
       }
 
       main {
-        padding: 1.3rem;
-      }
-
-      .hero h1 {
-        font-size: 1.6rem;
+        padding: 1.2rem;
       }
 
       .whatsapp-float {
@@ -189,14 +226,16 @@
   </nav>
 
   <div class="hero">
-    <h1>Ginecología y Salud Femenina en Guayaquil</h1>
-    <p>
-      Atención médica integral para mujeres, con enfoque preventivo,
-      profesional y personalizado. Atendemos con cita previa.
-    </p>
-    <a href="https://wa.me/593984567660?text=Hola,%20deseo%20agendar%20una%20valoración%20médica%20en%20AUROSANAX." class="button">
-      Agendar valoración médica
-    </a>
+    <div class="hero-box">
+      <h1>Salud Femenina Integral en Guayaquil, Ecuador</h1>
+      <p>
+        Atención médica integral para mujeres, con enfoque preventivo,
+        profesional y personalizado. En AUROSANAX atendemos con cita previa.
+      </p>
+      <a href="https://wa.me/593984567660?text=Hola,%20deseo%20agendar%20una%20valoración%20médica%20en%20AUROSANAX." class="button">
+        Agendar valoración médica
+      </a>
+    </div>
   </div>
 
   <main>
@@ -205,73 +244,78 @@
       <h2>Sobre AUROSANAX</h2>
       <p>
         En AUROSANAX brindamos atención médica integral en salud femenina,
-        con énfasis en ginecología, prevención, bienestar y valoración médica
-        personalizada para mujeres en Guayaquil, Ecuador.
+        priorizando ginecología, prevención, bienestar y valoración médica personalizada.
       </p>
-
       <p>
-        Nuestro enfoque prioriza la atención profesional, confidencial y ética,
-        orientando cada servicio según la condición individual de cada paciente.
+        Cada servicio se orienta según la condición individual de la paciente,
+        con atención profesional, confidencial y ética.
       </p>
     </section>
 
     <section id="servicios">
-
       <h2>Servicios</h2>
 
-      <h3>Ginecología General</h3>
-      <ul>
-        <li>Consulta ginecológica integral</li>
-        <li>Control ginecológico anual</li>
-        <li>Papanicolaou convencional y líquido</li>
-        <li>Colposcopía</li>
-      </ul>
+      <div class="services-grid">
 
-      <h3>Salud Íntima y Estética Médica Femenina</h3>
-      <ul>
-        <li>Labioplastia, previa valoración médica</li>
-        <li>Rejuvenecimiento íntimo indicado según evaluación profesional</li>
-        <li>Blanqueamiento genital bajo criterio médico</li>
-        <li>Hidratación íntima</li>
-        <li>Estética vulvar no invasiva</li>
-      </ul>
+        <div class="card">
+          <h3>Ginecología General</h3>
+          <ul>
+            <li>Consulta ginecológica integral</li>
+            <li>Control ginecológico anual</li>
+            <li>Papanicolaou convencional y líquido</li>
+            <li>Colposcopía</li>
+          </ul>
+        </div>
 
-      <h3>Terapias Complementarias con Sueros</h3>
-      <ul>
-        <li>Suero regenerativo celular</li>
-        <li>Apoyo inmunológico</li>
-        <li>Apoyo energético</li>
-        <li>Terapias complementarias de bienestar</li>
-        <li>Apoyo capilar y cuidado de la piel, según valoración médica</li>
-      </ul>
+        <div class="card">
+          <h3>Salud Íntima Femenina</h3>
+          <ul>
+            <li>Labioplastia previa valoración médica</li>
+            <li>Rejuvenecimiento íntimo indicado según evaluación</li>
+            <li>Blanqueamiento genital bajo criterio médico</li>
+            <li>Hidratación íntima</li>
+            <li>Estética vulvar no invasiva</li>
+          </ul>
+        </div>
 
-      <h3>Servicios Complementarios</h3>
-      <ul>
-        <li>Charlas educativas para mujeres</li>
-        <li>Valoración médica personalizada</li>
-        <li>Recomendaciones de estilo de vida saludable</li>
-        <li>Asesoría nutricional básica</li>
-        <li>Programas integrales de salud femenina</li>
-      </ul>
+        <div class="card">
+          <h3>Terapias con Sueros</h3>
+          <ul>
+            <li>Suero regenerativo celular</li>
+            <li>Apoyo inmunológico</li>
+            <li>Apoyo energético</li>
+            <li>Terapias complementarias de bienestar</li>
+            <li>Apoyo capilar y cuidado de la piel</li>
+          </ul>
+        </div>
 
-      <div class="note">
-        Todo procedimiento o terapia complementaria se define según valoración médica personalizada.
+        <div class="card">
+          <h3>Servicios Complementarios</h3>
+          <ul>
+            <li>Charlas educativas para mujeres</li>
+            <li>Valoración médica personalizada</li>
+            <li>Recomendaciones de estilo de vida saludable</li>
+            <li>Asesoría nutricional básica</li>
+            <li>Programas integrales de salud femenina</li>
+          </ul>
+        </div>
+
       </div>
 
+      <div class="notice">
+        Todo procedimiento o terapia complementaria se define según valoración médica personalizada.
+      </div>
     </section>
 
     <section id="contacto">
       <h2>Contacto</h2>
-
       <p>
         Para agendar una cita o recibir información general,
         contáctanos vía WhatsApp.
       </p>
-
       <p>
         <strong>Ubicación:</strong> Guayaquil, Ecuador. Atención con cita previa.
       </p>
-
       <a href="https://wa.me/593984567660?text=Hola,%20deseo%20información%20para%20agendar%20una%20cita%20en%20AUROSANAX." class="button">
         Enviar mensaje
       </a>
@@ -284,28 +328,16 @@
   </a>
 
   <footer>
-
     <h4>Aviso Legal</h4>
-    <p>
-      Este sitio es informativo y no sustituye
-      la consulta médica profesional.
-    </p>
+    <p>Este sitio es informativo y no sustituye la consulta médica profesional.</p>
 
     <h4>Política de Privacidad</h4>
-    <p>
-      No recopilamos información personal sin su consentimiento.
-      Todos los datos se manejan de forma confidencial.
-    </p>
+    <p>No recopilamos información personal sin su consentimiento. Todos los datos se manejan de forma confidencial.</p>
 
     <h4>Política de Cookies</h4>
-    <p>
-      Este sitio puede utilizar cookies para mejorar
-      la experiencia del usuario.
-      Al continuar navegando, aceptas su uso.
-    </p>
+    <p>Este sitio puede utilizar cookies para mejorar la experiencia del usuario. Al continuar navegando, aceptas su uso.</p>
 
     <p>&copy; 2026 AUROSANAX. Todos los derechos reservados.</p>
-
   </footer>
 
 </body>
