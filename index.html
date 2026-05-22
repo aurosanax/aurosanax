@@ -4,11 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- FAVICON / ICONO DEL NAVEGADOR -->
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
 
-  <title>Aurosanax - Centro Médico</title>
+  <title>Ginecología y Salud Femenina en Guayaquil | AUROSANAX</title>
+  <meta name="description" content="AUROSANAX, consultorio médico especializado en ginecología y salud femenina en Guayaquil. Atención profesional con cita previa.">
+
+  <meta property="og:title" content="AUROSANAX - Salud Femenina en Guayaquil">
+  <meta property="og:description" content="Consultorio médico especializado en ginecología, salud femenina y valoración médica personalizada.">
+  <meta property="og:image" content="logo-aurosanax.png">
+  <meta property="og:type" content="website">
 
   <style>
     body {
@@ -17,6 +22,7 @@
       padding: 0;
       background-color: #ffffff;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
@@ -35,6 +41,24 @@
       margin: 0;
     }
 
+    .hero {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: #fff5fa;
+    }
+
+    .hero h1 {
+      color: #b30059;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1rem;
+    }
+
     nav {
       background-color: #b30059;
       text-align: center;
@@ -44,7 +68,7 @@
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 20px;
+      margin: 0 15px;
       font-weight: bold;
     }
 
@@ -59,7 +83,7 @@
     }
 
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     h2 {
@@ -70,11 +94,20 @@
 
     h3 {
       color: #b30059;
+      margin-top: 1.5rem;
     }
 
     ul {
       list-style: disc;
       padding-left: 20px;
+    }
+
+    .note {
+      background: #fff5fa;
+      border-left: 4px solid #b30059;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 5px;
     }
 
     .button {
@@ -91,6 +124,20 @@
       background-color: #99004d;
     }
 
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background-color: #b30059;
+      color: white;
+      padding: 13px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
+
     footer {
       background-color: #f4f4f4;
       text-align: center;
@@ -103,6 +150,27 @@
     footer h4 {
       margin-top: 2rem;
       color: #b30059;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: inline-block;
+        margin: 6px 10px;
+      }
+
+      main {
+        padding: 1.3rem;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .whatsapp-float {
+        right: 12px;
+        bottom: 12px;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
@@ -120,15 +188,30 @@
     <a href="#contacto">Contacto</a>
   </nav>
 
+  <div class="hero">
+    <h1>Ginecología y Salud Femenina en Guayaquil</h1>
+    <p>
+      Atención médica integral para mujeres, con enfoque preventivo,
+      profesional y personalizado. Atendemos con cita previa.
+    </p>
+    <a href="https://wa.me/593984567660?text=Hola,%20deseo%20agendar%20una%20valoración%20médica%20en%20AUROSANAX." class="button">
+      Agendar valoración médica
+    </a>
+  </div>
+
   <main>
 
     <section id="nosotros">
-      <h2>Sobre Nosotros</h2>
+      <h2>Sobre AUROSANAX</h2>
       <p>
-        En Aurosanax, nos especializamos en ginecología funcional,
-        regenerativa y estética, ofreciendo a nuestras pacientes en
-        Guayaquil, Ecuador, una atención médica de calidad enfocada
-        en su bienestar integral.
+        En AUROSANAX brindamos atención médica integral en salud femenina,
+        con énfasis en ginecología, prevención, bienestar y valoración médica
+        personalizada para mujeres en Guayaquil, Ecuador.
+      </p>
+
+      <p>
+        Nuestro enfoque prioriza la atención profesional, confidencial y ética,
+        orientando cada servicio según la condición individual de cada paciente.
       </p>
     </section>
 
@@ -140,28 +223,26 @@
       <ul>
         <li>Consulta ginecológica integral</li>
         <li>Control ginecológico anual</li>
-        <li>Papanicolaou (convencional y líquido)</li>
+        <li>Papanicolaou convencional y líquido</li>
         <li>Colposcopía</li>
       </ul>
 
-      <h3>Estética Íntima</h3>
+      <h3>Salud Íntima y Estética Médica Femenina</h3>
       <ul>
-        <li>Labioplastia (cirugía íntima)</li>
-        <li>Rejuvenecimiento vaginal</li>
-        <li>Blanqueamiento genital</li>
+        <li>Labioplastia, previa valoración médica</li>
+        <li>Rejuvenecimiento íntimo indicado según evaluación profesional</li>
+        <li>Blanqueamiento genital bajo criterio médico</li>
         <li>Hidratación íntima</li>
         <li>Estética vulvar no invasiva</li>
       </ul>
 
-      <h3>Terapias con Sueros</h3>
+      <h3>Terapias Complementarias con Sueros</h3>
       <ul>
         <li>Suero regenerativo celular</li>
-        <li>Suero inmunológico</li>
-        <li>Suero energizante</li>
-        <li>Suero detox</li>
-        <li>Suero antienvejecimiento</li>
-        <li>Suero capilar</li>
-        <li>Suero para piel luminosa</li>
+        <li>Apoyo inmunológico</li>
+        <li>Apoyo energético</li>
+        <li>Terapias complementarias de bienestar</li>
+        <li>Apoyo capilar y cuidado de la piel, según valoración médica</li>
       </ul>
 
       <h3>Servicios Complementarios</h3>
@@ -170,8 +251,12 @@
         <li>Valoración médica personalizada</li>
         <li>Recomendaciones de estilo de vida saludable</li>
         <li>Asesoría nutricional básica</li>
-        <li>Programas integrales de salud</li>
+        <li>Programas integrales de salud femenina</li>
       </ul>
+
+      <div class="note">
+        Todo procedimiento o terapia complementaria se define según valoración médica personalizada.
+      </div>
 
     </section>
 
@@ -179,16 +264,24 @@
       <h2>Contacto</h2>
 
       <p>
-        Para agendar una cita o más información,
-        contáctanos vía WhatsApp:
+        Para agendar una cita o recibir información general,
+        contáctanos vía WhatsApp.
       </p>
 
-      <a href="https://wa.me/593984567660" class="button">
+      <p>
+        <strong>Ubicación:</strong> Guayaquil, Ecuador. Atención con cita previa.
+      </p>
+
+      <a href="https://wa.me/593984567660?text=Hola,%20deseo%20información%20para%20agendar%20una%20cita%20en%20AUROSANAX." class="button">
         Enviar mensaje
       </a>
     </section>
 
   </main>
+
+  <a href="https://wa.me/593984567660?text=Hola,%20deseo%20agendar%20una%20valoración%20médica%20en%20AUROSANAX." class="whatsapp-float">
+    WhatsApp
+  </a>
 
   <footer>
 
@@ -211,7 +304,7 @@
       Al continuar navegando, aceptas su uso.
     </p>
 
-    <p>&copy; 2025 Aurosanax. Todos los derechos reservados.</p>
+    <p>&copy; 2026 AUROSANAX. Todos los derechos reservados.</p>
 
   </footer>
 
