@@ -8,132 +8,113 @@
   <link rel="apple-touch-icon" href="favicon.png">
 
   <title>Salud Femenina Integral en Guayaquil | AUROSANAX</title>
+  <meta name="description" content="AUROSANAX, consultorio médico especializado en ginecología y salud femenina en Guayaquil, Ecuador. Atención profesional con cita previa.">
 
   <style>
     :root {
-      --fucsia: #d61b7f;
-      --fucsia-claro: #f05a9d;
-      --fucsia-oscuro: #b01467;
-      --texto: #333;
-    }
-
-    * {
-      box-sizing: border-box;
+      --fucsia: #d63384;
+      --fucsia-claro: #f06292;
+      --fucsia-oscuro: #b8206f;
+      --rosado-suave: #fff0f7;
+      --borde-rosado: #f4c7dc;
+      --texto: #333333;
     }
 
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: #fff;
+      margin: 0;
+      background: #ffffff;
       color: var(--texto);
       line-height: 1.6;
     }
 
-    .site-header {
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
       position: relative;
-      width: 100%;
       overflow: hidden;
-      background: #fff3f8;
-      text-align: center;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.70),
+          rgba(255,240,247,0.86)
+        ),
+        url('banner.png');
+
+      background-size: cover;
+      background-position: center 25%;
+      background-repeat: no-repeat;
     }
 
-    .banner-img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
+    header img {
+      width: 130px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15));
     }
 
-    .header-content {
-      position: absolute;
-      top: 46%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      width: 100%;
-      padding: 0 15px;
-    }
-
-    .header-content .logo {
-      width: 115px;
-      max-width: 32vw;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12));
-    }
-
-    .header-content p {
+    header p {
       color: var(--fucsia-oscuro);
-      font-size: 1rem;
       font-weight: bold;
-      margin: 6px 0 0;
-      text-shadow: 0 2px 6px rgba(255,255,255,0.95);
+      margin: 0;
+      font-size: 1.15rem;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 1px 3px rgba(255,255,255,0.8);
     }
 
     nav {
       background: linear-gradient(90deg, var(--fucsia-oscuro), var(--fucsia), var(--fucsia-claro));
       text-align: center;
-      padding: 13px 5px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 12px 5px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
-      margin: 0 18px;
+      margin: 0 14px;
       font-weight: bold;
-      font-size: 1rem;
     }
 
     .hero {
       max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      text-align: center;
     }
 
     .hero-box {
-      background: linear-gradient(180deg, #fff7fb, #fff1f7);
-      border-radius: 24px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 10px 28px rgba(214,27,127,0.10);
-      border: 1px solid #f3c4d9;
-      text-align: center;
+      background: linear-gradient(180deg, #fff7fb, var(--rosado-suave));
+      border-radius: 18px;
+      padding: 2.5rem 1.5rem;
+      box-shadow: 0 8px 25px rgba(214, 51, 132, 0.14);
+      border: 1px solid var(--borde-rosado);
     }
 
     h1 {
       color: var(--fucsia-oscuro);
-      font-size: 2.2rem;
-      margin-top: 0;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
     }
 
-    .hero-box p {
-      max-width: 760px;
-      margin: auto;
-      font-size: 1.05rem;
-      color: #444;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 2rem;
-      background: linear-gradient(90deg, var(--fucsia-oscuro), var(--fucsia-claro));
-      color: white;
-      text-decoration: none;
-      padding: 15px 34px;
-      border-radius: 40px;
-      font-weight: bold;
-      font-size: 1.05rem;
-      box-shadow: 0 6px 18px rgba(214,27,127,0.25);
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 1.2rem;
+      font-size: 1rem;
     }
 
     main {
       max-width: 1000px;
       margin: auto;
-      padding: 0 1.2rem 3rem;
+      padding: 1.5rem;
     }
 
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 2.8rem;
     }
 
     h2 {
@@ -145,16 +126,16 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      gap: 18px;
       margin-top: 1.5rem;
     }
 
     .card {
-      background: white;
-      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid var(--borde-rosado);
+      border-radius: 14px;
       padding: 1.2rem;
-      border: 1px solid #f4d1e2;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+      box-shadow: 0 5px 18px rgba(0,0,0,0.06);
     }
 
     .card h3 {
@@ -162,16 +143,32 @@
       margin-top: 0;
     }
 
-    .card ul {
-      padding-left: 18px;
+    ul {
+      padding-left: 20px;
     }
 
     .notice {
-      background: #fff2f8;
+      background: var(--rosado-suave);
       border-left: 5px solid var(--fucsia);
       padding: 1rem;
-      border-radius: 10px;
-      margin-top: 2rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+    }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--fucsia-oscuro), var(--fucsia-claro));
+      color: #fff;
+      padding: 11px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(214, 51, 132, 0.25);
+    }
+
+    .button:hover {
+      background: linear-gradient(90deg, #a71963, #e8528a);
     }
 
     .whatsapp-float {
@@ -180,80 +177,60 @@
       bottom: 18px;
       background: linear-gradient(90deg, var(--fucsia-oscuro), var(--fucsia-claro));
       color: white;
-      text-decoration: none;
-      padding: 14px 20px;
+      padding: 13px 18px;
       border-radius: 50px;
+      text-decoration: none;
       font-weight: bold;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.20);
+      box-shadow: 0 5px 16px rgba(0,0,0,0.28);
       z-index: 999;
     }
 
     footer {
-      background: #f5f5f5;
+      background: #f4f4f4;
       text-align: center;
+      font-size: 0.9rem;
       padding: 2rem 1rem;
-      color: #666;
-      font-size: 0.92rem;
+      margin-top: 3rem;
+      color: #555;
     }
 
     footer h4 {
       color: var(--fucsia-oscuro);
+      margin-top: 1.5rem;
     }
 
     @media (max-width: 600px) {
-      .banner-img {
-        height: 190px;
-        object-fit: cover;
-        object-position: center center;
-      }
-
-      .header-content {
-        top: 45%;
-      }
-
-      .header-content .logo {
-        width: 72px;
-      }
-
-      .header-content p {
-        font-size: 0.78rem;
-        line-height: 1.1;
+      header {
+        padding: 2.5rem 1rem 1.8rem;
+        background-position: center top;
       }
 
       nav a {
-        margin: 0 10px;
+        display: inline-block;
+        margin: 5px 9px;
         font-size: 0.95rem;
       }
 
+      h1 {
+        font-size: 1.55rem;
+      }
+
       .hero {
-        margin-top: 1.3rem;
+        padding: 2rem 1rem;
       }
 
       .hero-box {
-        padding: 2rem 1.2rem;
-        border-radius: 20px;
+        padding: 2rem 1rem;
       }
 
-      h1 {
-        font-size: 1.6rem;
-        line-height: 1.25;
-      }
-
-      .hero-box p {
-        font-size: 1rem;
-        line-height: 1.7;
-      }
-
-      .button {
-        padding: 14px 26px;
-        font-size: 1rem;
+      main {
+        padding: 1.2rem;
       }
 
       .whatsapp-float {
         right: 12px;
         bottom: 12px;
-        padding: 12px 16px;
-        font-size: 0.92rem;
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -261,13 +238,9 @@
 
 <body>
 
-  <header class="site-header">
-    <img src="banner.png?v=40" alt="Banner AUROSANAX" class="banner-img">
-
-    <div class="header-content">
-      <img src="logo-aurosanax.png" alt="Logo de AUROSANAX" class="logo">
-      <p>Centro Médico Especializado en Salud Femenina</p>
-    </div>
+  <header>
+    <img src="logo-aurosanax.png" alt="Logo de Aurosanax" />
+    <p>Centro Médico Especializado en Salud Femenina</p>
   </header>
 
   <nav>
@@ -322,7 +295,7 @@
           <h3>Salud Íntima Femenina</h3>
           <ul>
             <li>Labioplastia previa valoración médica</li>
-            <li>Rejuvenecimiento íntimo según evaluación</li>
+            <li>Rejuvenecimiento íntimo indicado según evaluación</li>
             <li>Blanqueamiento genital bajo criterio médico</li>
             <li>Hidratación íntima</li>
             <li>Estética vulvar no invasiva</li>
@@ -393,3 +366,4 @@
 
 </body>
 </html>
+
