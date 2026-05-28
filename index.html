@@ -12,7 +12,7 @@
   <meta name="description"
         content="AUROSANAX, consultorio médico especializado en ginecología y salud femenina en Guayaquil, Ecuador. Atención profesional con cita previa.">
 
-  <style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=gKr3mqMksdHipOQrXFwJCJGHm5G2mMcOYkWN7eumK2U7D88StidgdD3XnKHBrezeI8lJnPobWt4gDale-4i927dYHCF5VP--ZRf3PWWeCg1u46ylb9lFvyQzKRZ6QpMF_65xiOrlU6OAMUDUuFav2FEsXcXR83AHOZf8EtiKoEfe_TzXwejU9IwmF_g38DrIMQi7H8DAapa_gzfYUvG-SRu6antyTHWPkKBKOq3Ug_FV4woOnSkOKT1T-o6WMjmldbU0jjfRuijo6Sj84TdLmg" charset="UTF-8"></script><style>
     :root {
       --fucsia: #d63384;
       --fucsia-claro: #f06292;
@@ -692,6 +692,49 @@
       Todos los derechos reservados.
     </p>
   </footer>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbykS63XL-EQocGB4Js5iVi92jaqo6drVsrOaCl7uYBD-xmACBsh4zn560fCd0e8_XCx/exec";
+
+    const form = document.getElementById("formulario-cita");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const boton = form.querySelector("button[type='submit']");
+      const textoOriginal = boton.textContent;
+
+      boton.disabled = true;
+      boton.textContent = "Enviando...";
+
+      const datos = {
+        nombre: document.getElementById("nombre").value,
+        telefono: document.getElementById("telefono").value,
+        servicio: document.getElementById("servicio").value,
+        fecha: document.getElementById("fecha").value,
+        hora: document.getElementById("hora").value,
+        mensaje: document.getElementById("mensaje").value
+      };
+
+      fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(datos)
+      })
+      .then(() => {
+        alert("Solicitud enviada correctamente. Nos comunicaremos con usted para confirmar disponibilidad.");
+        form.reset();
+      })
+      .catch(() => {
+        alert("Hubo un error al enviar la solicitud. Por favor intente nuevamente o escríbanos por WhatsApp.");
+      })
+      .finally(() => {
+        boton.disabled = false;
+        boton.textContent = textoOriginal;
+      });
+    });
+  </script>
+
 
 </body>
 </html>
