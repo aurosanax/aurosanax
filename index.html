@@ -850,7 +850,7 @@
         script.remove();
       };
 
-      script.src = scriptURL + "?consulta=disponibilidad&callback=" + callbackName + "&t=" + new Date().getTime();
+      script.src = scriptURL + "?callback=" + callbackName + "&t=" + new Date().getTime();
       document.body.appendChild(script);
     }
 
