@@ -12,7 +12,7 @@
   <meta name="description"
         content="AUROSANAX, consultorio médico especializado en ginecología y salud femenina en Guayaquil, Ecuador. Atención profesional con cita previa.">
 
- <style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=5vJs_Dr4VAfrsZbf_9mmcI9POitzRU_5_ibDRVMzg3vTRfReUJMRBo7KQ-tpSZiEGev_AkRsG0NfZipeZPKbqyIfZCLC9bY79-X8A_MF5BBTCbCWK-YT-pbP0_g_hHoheRAhBCG_Rj5icuaFS7Ca0SLjFn4fyT2aUf17CGsNaHJ3K0pEKjiDGTGZ8sDnv5CPPr36b09Dx6UxoJTwkC2T8ApCLGrxwiPwvW2omEp81IhwKr4jrtMBih3-1RSKsKdr8xKP259xuVNq_sydl0pJ5Q" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=gKr3mqMksdHipOQrXFwJCJGHm5G2mMcOYkWN7eumK2U7D88StidgdD3XnKHBrezeI8lJnPobWt4gDale-4i927dYHCF5VP--ZRf3PWWeCg1u46ylb9lFvyQzKRZ6QpMF_65xiOrlU6OAMUDUuFav2FEsXcXR83AHOZf8EtiKoEfe_TzXwejU9IwmF_g38DrIMQi7H8DAapa_gzfYUvG-SRu6antyTHWPkKBKOq3Ug_FV4woOnSkOKT1T-o6WMjmldbU0jjfRuijo6Sj84TdLmg" charset="UTF-8"></script><style>
     :root {
       --fucsia: #d63384;
       --fucsia-claro: #f06292;
@@ -272,6 +272,35 @@
       font-size: 0.9rem;
       color: #666;
       margin-top: 0.8rem;
+    }
+
+    .availability-message {
+      font-size: 0.92rem;
+      margin: 0.4rem 0 1rem;
+      padding: 10px 12px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .availability-message.ok {
+      display: block;
+      color: #155724;
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+    }
+
+    .availability-message.error {
+      display: block;
+      color: #721c24;
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+
+    .availability-message.info {
+      display: block;
+      color: #5a3b00;
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
     }
 
     .whatsapp-float {
@@ -600,10 +629,13 @@
             id="fecha"
             name="fecha">
 
-          <input
-            type="time"
-            id="hora"
-            name="hora">
+          <select id="hora" name="hora" required disabled>
+            <option value="">Seleccione primero una fecha disponible</option>
+          </select>
+
+          <p id="mensaje-disponibilidad" class="availability-message info">
+            Seleccione una fecha para consultar horarios disponibles.
+          </p>
 
           <textarea
             id="mensaje"
@@ -697,9 +729,106 @@
     const scriptURL = "https://script.google.com/macros/s/AKfycbykS63XL-EQocGB4Js5iVi92jaqo6drVsrOaCl7uYBD-xmACBsh4zn560fCd0e8_XCx/exec";
 
     const form = document.getElementById("formulario-cita");
+    const fechaInput = document.getElementById("fecha");
+    const horaSelect = document.getElementById("hora");
+    const mensajeDisponibilidad = document.getElementById("mensaje-disponibilidad");
+
+    let disponibilidad = [];
+
+    function mostrarMensajeDisponibilidad(texto, tipo) {
+      mensajeDisponibilidad.textContent = texto;
+      mensajeDisponibilidad.className = "availability-message " + tipo;
+    }
+
+    function limpiarHoras(texto) {
+      horaSelect.innerHTML = "";
+      const option = document.createElement("option");
+      option.value = "";
+      option.textContent = texto;
+      horaSelect.appendChild(option);
+      horaSelect.disabled = true;
+    }
+
+    function cargarHorasPorFecha(fechaSeleccionada) {
+      const horarios = disponibilidad
+        .filter(item => item.fecha === fechaSeleccionada)
+        .map(item => item.hora)
+        .filter((hora, index, array) => hora && array.indexOf(hora) === index)
+        .sort();
+
+      if (horarios.length === 0) {
+        limpiarHoras("Sin horarios disponibles");
+        mostrarMensajeDisponibilidad(
+          "No hay disponibilidad para esta fecha. Por favor seleccione otro día.",
+          "error"
+        );
+        return;
+      }
+
+      horaSelect.innerHTML = "";
+
+      const primeraOpcion = document.createElement("option");
+      primeraOpcion.value = "";
+      primeraOpcion.textContent = "Seleccione una hora disponible";
+      horaSelect.appendChild(primeraOpcion);
+
+      horarios.forEach(hora => {
+        const option = document.createElement("option");
+        option.value = hora;
+        option.textContent = hora;
+        horaSelect.appendChild(option);
+      });
+
+      horaSelect.disabled = false;
+
+      mostrarMensajeDisponibilidad(
+        "Horarios disponibles para el " + fechaSeleccionada + ".",
+        "ok"
+      );
+    }
+
+    async function cargarDisponibilidad() {
+      try {
+        mostrarMensajeDisponibilidad("Cargando disponibilidad...", "info");
+
+        const respuesta = await fetch(scriptURL + "?consulta=disponibilidad&t=" + new Date().getTime());
+        disponibilidad = await respuesta.json();
+
+        limpiarHoras("Seleccione primero una fecha disponible");
+
+        if (!disponibilidad || disponibilidad.length === 0) {
+          mostrarMensajeDisponibilidad(
+            "Por el momento no hay horarios cargados. Escríbanos por WhatsApp para coordinar.",
+            "error"
+          );
+          return;
+        }
+
+        mostrarMensajeDisponibilidad(
+          "Seleccione una fecha para ver los horarios disponibles.",
+          "info"
+        );
+
+      } catch (error) {
+        limpiarHoras("No se pudo cargar disponibilidad");
+        mostrarMensajeDisponibilidad(
+          "No se pudo cargar la disponibilidad. Intente nuevamente o escríbanos por WhatsApp.",
+          "error"
+        );
+      }
+    }
+
+    fechaInput.addEventListener("change", function() {
+      cargarHorasPorFecha(fechaInput.value);
+    });
 
     form.addEventListener("submit", function(e) {
       e.preventDefault();
+
+      if (!fechaInput.value || !horaSelect.value) {
+        alert("Por favor seleccione una fecha y una hora disponible.");
+        return;
+      }
 
       const boton = form.querySelector("button[type='submit']");
       const textoOriginal = boton.textContent;
@@ -711,8 +840,8 @@
         nombre: document.getElementById("nombre").value,
         telefono: document.getElementById("telefono").value,
         servicio: document.getElementById("servicio").value,
-        fecha: document.getElementById("fecha").value,
-        hora: document.getElementById("hora").value,
+        fecha: fechaInput.value,
+        hora: horaSelect.value,
         mensaje: document.getElementById("mensaje").value
       };
 
@@ -724,6 +853,8 @@
       .then(() => {
         alert("Solicitud enviada correctamente. Nos comunicaremos con usted para confirmar disponibilidad.");
         form.reset();
+        limpiarHoras("Seleccione primero una fecha disponible");
+        mostrarMensajeDisponibilidad("Seleccione una fecha para ver los horarios disponibles.", "info");
       })
       .catch(() => {
         alert("Hubo un error al enviar la solicitud. Por favor intente nuevamente o escríbanos por WhatsApp.");
@@ -733,6 +864,8 @@
         boton.textContent = textoOriginal;
       });
     });
+
+    cargarDisponibilidad();
   </script>
 
 
