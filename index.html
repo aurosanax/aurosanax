@@ -12,7 +12,7 @@
   <meta name="description"
         content="AUROSANAX, consultorio médico especializado en ginecología y salud femenina en Guayaquil, Ecuador. Atención profesional con cita previa.">
 
-<style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=0O1yYSRWwNiwRT0Tbo-8vAfpOcKjtstVAyPmZDZehAvofR7Ff-xYzfgtKhBtSMYsC9khmjh_snk6XoEX1n10VtsOKGYG-ZKMva5VELuXlUJvO3cZssNlVodUbI3Kqs3l4MMbeFF_OjXG-_-rMDmHklx2lsCvhbLPtaH6vwC7jsnu5xWR_OqeiSWBS6anluFWrRNQBd9mpalBl0J7I2sBbU54nE7FIehpqgq5Ylk10fMVUrBbgWhsdF6nMFTsCdLXPHx3Cl7h5OtuY68c4ZrmWQ" charset="UTF-8"></script><style>
 
     :root {
       --fucsia: #d63384;
@@ -733,37 +733,6 @@
       }
     }
 
-    /* ===== CORRECCIÓN MÓVIL iPhone + Android ===== */
-
-    input[type="date"],
-    input[type="time"],
-    select {
-      width: 100%;
-      box-sizing: border-box;
-      -webkit-appearance: none;
-      appearance: none;
-      border-radius: 18px;
-    }
-
-    input[type="date"]{
-      min-height: 56px;
-      background: #fff;
-      color: #666;
-    }
-
-    input[type="time"]{
-      min-height: 56px;
-      background: #fff;
-    }
-
-    @media screen and (max-width: 768px){
-      input,
-      select,
-      textarea{
-        font-size: 16px;
-      }
-    }
-
   </style>
 </head>
 
@@ -1186,30 +1155,11 @@
     }
 
     function normalizarHora(hora) {
-      if (!hora && hora !== 0) return "";
-
+      if (!hora) return "";
       hora = String(hora).trim();
-
-      if (/^\d{2}:\d{2}:\d{2}$/.test(hora)) {
-        return hora.substring(0, 5);
-      }
 
       if (/^\d{1}:\d{2}$/.test(hora)) {
         return "0" + hora;
-      }
-
-      if (/^\d{2}:\d{2}$/.test(hora)) {
-        return hora;
-      }
-
-      if (hora.includes("GMT")) {
-        const fechaHora = new Date(hora);
-
-        if (!isNaN(fechaHora.getTime())) {
-          const h = String(fechaHora.getHours()).padStart(2, "0");
-          const m = String(fechaHora.getMinutes()).padStart(2, "0");
-          return h + ":" + m;
-        }
       }
 
       return hora;
@@ -1257,7 +1207,6 @@
 
     function cargarDisponibilidad() {
       mostrarMensajeDisponibilidad("Cargando disponibilidad...", "info");
-      limpiarHoras("Cargando disponibilidad...");
 
       const callbackName = "recibirDisponibilidad_" + Date.now();
       const script = document.createElement("script");
@@ -1325,17 +1274,24 @@
         mensaje: document.getElementById("mensaje").value.trim()
       };
 
+      /*
+        ENVÍO A GOOGLE APPS SCRIPT
+        Se usa no-cors porque Google Apps Script no permite CORS normal desde GitHub Pages.
+        Importante: el Apps Script debe recibir JSON en doPost(e) con JSON.parse(e.postData.contents).
+      */
       fetch(scriptURL, {
         method: "POST",
         mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
         body: JSON.stringify(datos)
       })
       .then(() => {
-        alert("Solicitud enviada. Revise Google Sheets y el correo para confirmar el registro.");
+        alert("Solicitud enviada correctamente. Nos comunicaremos con usted para confirmar disponibilidad.");
         form.reset();
         limpiarHoras("Seleccione primero una fecha disponible");
         mostrarMensajeDisponibilidad("Seleccione una fecha para ver los horarios disponibles.", "info");
-        cargarDisponibilidad();
       })
       .catch(() => {
         alert("Hubo un error al enviar la solicitud. Por favor intente nuevamente o escríbanos por WhatsApp.");
