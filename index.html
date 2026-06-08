@@ -739,9 +739,11 @@
       <div class="form-box">
         <form id="formulario-cita">
 
-          <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre y dos apellidos" autocomplete="name" required>
 
-          <input type="text" id="telefono" name="telefono" placeholder="WhatsApp" required>
+          <input type="text" id="cedula" name="cedula" placeholder="Cedula (10 dígitos)" maxlength="10" inputmode="numeric" pattern="\d{10}" autocomplete="off" required>
+
+          <input type="text" id="telefono" name="telefono" placeholder="WhatsApp" inputmode="tel" autocomplete="tel" required>
 
           <select id="servicio" name="servicio" required>
             <option value="">Seleccione el servicio de interés</option>
@@ -764,7 +766,7 @@
             Cargando disponibilidad...
           </p>
 
-          <textarea id="mensaje" name="mensaje" placeholder="Mensaje adicional"></textarea>
+          <textarea id="mensaje" name="mensaje" maxlength="100" placeholder="Mensaje adicional breve (máx. 100 caracteres)"></textarea>
 
           <button type="submit" class="button">Enviar solicitud</button>
 
@@ -998,6 +1000,13 @@
       cargarHorasPorFecha(fechaInput.value);
     });
 
+    const cedulaInput = document.getElementById("cedula");
+    if (cedulaInput) {
+      cedulaInput.addEventListener("input", function() {
+        this.value = this.value.replace(/\D/g, "").slice(0, 10);
+      });
+    }
+
     form.addEventListener("submit", function(e) {
       e.preventDefault();
 
@@ -1012,13 +1021,55 @@
       boton.disabled = true;
       boton.textContent = "Enviando...";
 
+      const nombre = document.getElementById("nombre").value.trim();
+      const cedula = document.getElementById("cedula").value.replace(/\D/g, "");
+      const telefono = document.getElementById("telefono").value.trim();
+      const servicio = document.getElementById("servicio").value;
+      const mensaje = document.getElementById("mensaje").value.trim();
+
+      if (nombre.split(/\s+/).filter(Boolean).length < 3) {
+        alert("Por favor ingrese un nombre y dos apellidos.");
+        boton.disabled = false;
+        boton.textContent = textoOriginal;
+        return;
+      }
+
+      if (!/^\d{10}$/.test(cedula)) {
+        alert("Por favor ingrese una cédula válida de 10 dígitos.");
+        boton.disabled = false;
+        boton.textContent = textoOriginal;
+        return;
+      }
+
+      if (!telefono) {
+        alert("Por favor ingrese un número de WhatsApp.");
+        boton.disabled = false;
+        boton.textContent = textoOriginal;
+        return;
+      }
+
+      if (!servicio) {
+        alert("Por favor seleccione un servicio de interés.");
+        boton.disabled = false;
+        boton.textContent = textoOriginal;
+        return;
+      }
+
+      if (mensaje.length > 100) {
+        alert("El mensaje adicional no puede superar los 100 caracteres.");
+        boton.disabled = false;
+        boton.textContent = textoOriginal;
+        return;
+      }
+
       const datos = {
-        nombre: document.getElementById("nombre").value.trim(),
-        telefono: document.getElementById("telefono").value.trim(),
-        servicio: document.getElementById("servicio").value,
+        nombre: nombre,
+        cedula: cedula,
+        telefono: telefono,
+        servicio: servicio,
         fecha: fechaInput.value,
         hora: horaSelect.value,
-        mensaje: document.getElementById("mensaje").value.trim()
+        mensaje: mensaje
       };
 
       fetch(scriptURL, {
