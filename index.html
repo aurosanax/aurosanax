@@ -240,13 +240,64 @@
     }
 
 
+    .about-premium {
+      background: linear-gradient(180deg, #ffffff, #fff8fb);
+      border: 1px solid var(--borde-rosado);
+      border-radius: 22px;
+      padding: 1.8rem;
+      box-shadow: 0 10px 28px rgba(200, 61, 130, 0.10);
+      margin-top: 1.4rem;
+    }
+
+    .about-premium p {
+      max-width: 880px;
+      margin: 0 0 1rem;
+      font-size: 0.98rem;
+      line-height: 1.78;
+    }
+
+    .about-premium p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-highlight {
+      background: linear-gradient(135deg, #fff3f8, #ffffff);
+      border: 1px solid var(--borde-rosado);
+      border-radius: 18px;
+      padding: 1.35rem 1.45rem;
+      margin-top: 1.25rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.85);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-highlight::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      right: -55px;
+      top: -45px;
+      background: rgba(232, 138, 177, 0.16);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
     .about-subtitle {
       color: var(--fucsia-oscuro);
-      font-size: 1.08rem;
+      font-size: 1.13rem;
       font-weight: 700;
       line-height: 1.35;
-      margin: 1.35rem 0 0.55rem;
+      margin: 0 0 0.7rem;
       letter-spacing: -0.1px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-highlight p {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 0;
     }
 
     .notice {
@@ -538,10 +589,27 @@
       }
 
 
+      .about-premium {
+        padding: 1.25rem;
+        border-radius: 18px;
+        margin-top: 1rem;
+      }
+
+      .about-premium p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .about-highlight {
+        padding: 1.15rem;
+        border-radius: 16px;
+        margin-top: 1.05rem;
+      }
+
       .about-subtitle {
         font-size: 1rem;
         line-height: 1.35;
-        margin: 1.15rem 0 0.5rem;
+        margin: 0 0 0.55rem;
       }
 
       .hero p {
@@ -654,31 +722,23 @@
     <section id="nosotros">
       <h2>Sobre AUROSANAX</h2>
 
-      <p>
-        En AUROSANAX brindamos atención médica integral
-        en salud femenina,
-        priorizando ginecología,
-        prevención,
-        bienestar y valoración médica personalizada.
-      </p>
+      <div class="about-premium">
+        <p>
+          En AUROSANAX brindamos atención médica integral en salud femenina, priorizando ginecología, prevención, bienestar y valoración médica personalizada.
+        </p>
 
-      <p>
-        Cada servicio se orienta según la condición
-        individual de la paciente,
-        con atención profesional,
-        confidencial y ética.
-      </p>
+        <p>
+          Cada servicio se orienta según la condición individual de la paciente, con atención profesional, confidencial y ética.
+        </p>
 
-      <h3 class="about-subtitle">¿Qué es la Ginecología Estética, Regenerativa y Funcional?</h3>
+        <div class="about-highlight">
+          <h3 class="about-subtitle">¿Qué es la Ginecología Estética, Regenerativa y Funcional?</h3>
 
-      <p>
-        La Ginecología Estética, Regenerativa y Funcional integra innovación,
-        tecnología y experiencia médica para mejorar la salud,
-        funcionalidad y armonía de la zona íntima femenina.
-        Su enfoque está orientado a restaurar el bienestar,
-        la confianza y la calidad de vida de la mujer mediante tratamientos
-        personalizados, seguros y respaldados por evidencia científica.
-      </p>
+          <p>
+            La Ginecología Estética, Regenerativa y Funcional integra innovación, tecnología y experiencia médica para mejorar la salud, funcionalidad y armonía de la zona íntima femenina. Su enfoque está orientado a restaurar el bienestar, la confianza y la calidad de vida de la mujer mediante tratamientos personalizados, seguros y respaldados por evidencia científica.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="servicios">
