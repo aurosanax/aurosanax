@@ -240,6 +240,74 @@
     }
 
 
+    .symptom-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 15px;
+      padding: 14px 15px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff3f8, #ffffff);
+      border: 1px solid var(--borde-rosado);
+      text-decoration: none;
+      color: var(--texto);
+      box-shadow: 0 4px 14px rgba(200, 61, 130, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .symptom-link:hover,
+    .symptom-link:active {
+      background: linear-gradient(135deg, #ffe6f1, #ffffff);
+      border-color: var(--fucsia-claro);
+      box-shadow: 0 8px 20px rgba(200, 61, 130, 0.15);
+      transform: translateY(-2px);
+      text-decoration: none;
+      color: var(--texto);
+    }
+
+    .symptom-icon {
+      flex: 0 0 54px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #fde4f0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fucsia);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .symptom-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .symptom-title {
+      display: block;
+      color: var(--fucsia-oscuro);
+      font-weight: 800;
+      font-size: 0.98rem;
+      line-height: 1.25;
+      margin-bottom: 4px;
+      text-decoration: none;
+    }
+
+    .symptom-title .arrow {
+      font-size: 0.9rem;
+      margin-left: 4px;
+    }
+
+    .symptom-text {
+      display: block;
+      color: #555555;
+      font-size: 0.83rem;
+      line-height: 1.45;
+      text-decoration: none;
+    }
+
+
     .about-premium {
       background: linear-gradient(180deg, #ffffff, #fff8fb);
       border: 1px solid var(--borde-rosado);
@@ -645,17 +713,18 @@
         font-size: 0.92rem;
       }
 
-      .symptom-card-link {
-        margin-top: 13px;
-        padding: 12px 13px;
-        gap: 11px;
-        border-radius: 14px;
+
+      .symptom-link {
+        gap: 12px;
+        margin-top: 14px;
+        padding: 13px 14px;
+        border-radius: 15px;
       }
 
       .symptom-icon {
+        flex-basis: 50px;
         width: 50px;
         height: 50px;
-        min-width: 50px;
         font-size: 1.45rem;
       }
 
@@ -665,7 +734,7 @@
 
       .symptom-text {
         font-size: 0.82rem;
-        line-height: 1.45;
+        line-height: 1.42;
       }
 
       .form-box {
@@ -805,12 +874,12 @@
             <li>Manejo de incontinencia urinaria</li>
           </ul>
 
-          <a href="molestias-intimas.html" class="symptom-card-link" aria-label="Ver información sobre molestias íntimas">
-            <div class="symptom-icon">♡</div>
-            <div class="symptom-content">
-              <strong class="symptom-title">Molestias íntimas <span>↗</span></strong>
+          <a href="molestias-intimas.html" class="symptom-link" aria-label="Más información sobre molestias íntimas">
+            <span class="symptom-icon">♡</span>
+            <span class="symptom-content">
+              <span class="symptom-title">Molestias íntimas <span class="arrow">↗</span></span>
               <span class="symptom-text">Incomodidad, irritación o sensibilidad en el área íntima que afecta tu bienestar diario.</span>
-            </div>
+            </span>
           </a>
         </div>
         <div class="card">
