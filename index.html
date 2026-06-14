@@ -222,6 +222,21 @@
       line-height: 1.3;
     }
 
+
+    .service-link {
+      color: var(--texto);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .service-link:hover,
+    .service-link:active {
+      color: var(--fucsia-oscuro);
+      text-decoration: underline;
+    }
+
     ul {
       padding-left: 20px;
       margin-bottom: 0;
@@ -771,7 +786,7 @@
           <h3>Salud Íntima Femenina</h3>
 
           <ul>
-            <li>Labioplastia</li>
+            <li><a href="labioplastia.html" class="service-link">Labioplastia</a></li>
             <li>Rejuvenecimiento íntimo</li>
             <li>Blanqueamiento genital</li>
             <li>Hidratación íntima</li>
