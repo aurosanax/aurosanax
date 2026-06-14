@@ -240,74 +240,6 @@
     }
 
 
-    .symptom-link {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 15px;
-      padding: 14px 15px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #fff3f8, #ffffff);
-      border: 1px solid var(--borde-rosado);
-      text-decoration: none;
-      color: var(--texto);
-      box-shadow: 0 4px 14px rgba(200, 61, 130, 0.08);
-      transition: all 0.25s ease;
-    }
-
-    .symptom-link:hover,
-    .symptom-link:active {
-      background: linear-gradient(135deg, #ffe6f1, #ffffff);
-      border-color: var(--fucsia-claro);
-      box-shadow: 0 8px 20px rgba(200, 61, 130, 0.15);
-      transform: translateY(-2px);
-      text-decoration: none;
-      color: var(--texto);
-    }
-
-    .symptom-icon {
-      flex: 0 0 54px;
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background: #fde4f0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--fucsia);
-      font-size: 1.55rem;
-      line-height: 1;
-    }
-
-    .symptom-content {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .symptom-title {
-      display: block;
-      color: var(--fucsia-oscuro);
-      font-weight: 800;
-      font-size: 0.98rem;
-      line-height: 1.25;
-      margin-bottom: 4px;
-      text-decoration: none;
-    }
-
-    .symptom-title .arrow {
-      font-size: 0.9rem;
-      margin-left: 4px;
-    }
-
-    .symptom-text {
-      display: block;
-      color: #555555;
-      font-size: 0.83rem;
-      line-height: 1.45;
-      text-decoration: none;
-    }
-
-
     .about-premium {
       background: linear-gradient(180deg, #ffffff, #fff8fb);
       border: 1px solid var(--borde-rosado);
@@ -713,30 +645,6 @@
         font-size: 0.92rem;
       }
 
-
-      .symptom-link {
-        gap: 12px;
-        margin-top: 14px;
-        padding: 13px 14px;
-        border-radius: 15px;
-      }
-
-      .symptom-icon {
-        flex-basis: 50px;
-        width: 50px;
-        height: 50px;
-        font-size: 1.45rem;
-      }
-
-      .symptom-title {
-        font-size: 0.96rem;
-      }
-
-      .symptom-text {
-        font-size: 0.82rem;
-        line-height: 1.42;
-      }
-
       .form-box {
         padding: 1.2rem;
       }
@@ -766,6 +674,136 @@
         padding: 11px 14px;
       }
     }
+  
+
+    /* CORRECCIÓN FINAL: bloque Molestias Íntimas sin azul ni subrayado en iPhone/Android */
+    a.symptom-link,
+    a.symptom-link:link,
+    a.symptom-link:visited,
+    a.symptom-link:hover,
+    a.symptom-link:active,
+    a.symptom-link:focus {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+      margin-top: 15px !important;
+      padding: 14px 15px !important;
+      border-radius: 16px !important;
+      background: linear-gradient(135deg, #fff3f8, #ffffff) !important;
+      border: 1px solid var(--borde-rosado) !important;
+      box-shadow: 0 4px 14px rgba(200, 61, 130, 0.08) !important;
+      text-decoration: none !important;
+      color: var(--texto) !important;
+      -webkit-text-fill-color: var(--texto) !important;
+      outline: none !important;
+      cursor: pointer !important;
+      -webkit-tap-highlight-color: rgba(200, 61, 130, 0.12);
+    }
+
+    a.symptom-link:hover,
+    a.symptom-link:active,
+    a.symptom-link:focus {
+      background: linear-gradient(135deg, #ffe6f1, #ffffff) !important;
+      border-color: var(--fucsia-claro) !important;
+      box-shadow: 0 8px 20px rgba(200, 61, 130, 0.15) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    a.symptom-link *,
+    a.symptom-link *:link,
+    a.symptom-link *:visited,
+    a.symptom-link *:hover,
+    a.symptom-link *:active {
+      text-decoration: none !important;
+    }
+
+    a.symptom-link .symptom-title,
+    a.symptom-link .symptom-title:link,
+    a.symptom-link .symptom-title:visited,
+    a.symptom-link .symptom-title:hover,
+    a.symptom-link .symptom-title:active {
+      display: block !important;
+      color: var(--fucsia-oscuro) !important;
+      -webkit-text-fill-color: var(--fucsia-oscuro) !important;
+      font-weight: 800 !important;
+      font-size: 0.98rem !important;
+      line-height: 1.25 !important;
+      margin-bottom: 4px !important;
+      text-decoration: none !important;
+    }
+
+    a.symptom-link .symptom-text,
+    a.symptom-link .symptom-text:link,
+    a.symptom-link .symptom-text:visited,
+    a.symptom-link .symptom-text:hover,
+    a.symptom-link .symptom-text:active {
+      display: block !important;
+      color: #555555 !important;
+      -webkit-text-fill-color: #555555 !important;
+      font-size: 0.83rem !important;
+      line-height: 1.45 !important;
+      text-decoration: none !important;
+    }
+
+    a.symptom-link .symptom-icon {
+      flex: 0 0 54px !important;
+      width: 54px !important;
+      height: 54px !important;
+      border-radius: 50% !important;
+      background: #fde4f0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: var(--fucsia) !important;
+      -webkit-text-fill-color: var(--fucsia) !important;
+      font-size: 1.55rem !important;
+      line-height: 1 !important;
+      text-decoration: none !important;
+    }
+
+    @media (max-width: 600px) {
+      a.symptom-link,
+      a.symptom-link:link,
+      a.symptom-link:visited,
+      a.symptom-link:hover,
+      a.symptom-link:active,
+      a.symptom-link:focus {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-top: 16px !important;
+        padding: 14px !important;
+        border-radius: 16px !important;
+        text-decoration: none !important;
+        color: var(--texto) !important;
+        -webkit-text-fill-color: var(--texto) !important;
+      }
+
+      a.symptom-link .symptom-icon {
+        flex: 0 0 52px !important;
+        width: 52px !important;
+        height: 52px !important;
+        font-size: 1.45rem !important;
+      }
+
+      a.symptom-link .symptom-title {
+        color: var(--fucsia-oscuro) !important;
+        -webkit-text-fill-color: var(--fucsia-oscuro) !important;
+        font-size: 1rem !important;
+        text-decoration: none !important;
+      }
+
+      a.symptom-link .symptom-text {
+        color: #555555 !important;
+        -webkit-text-fill-color: #555555 !important;
+        font-size: 0.86rem !important;
+        line-height: 1.45 !important;
+        text-decoration: none !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -873,14 +911,6 @@
             <li>Corrección de cicatriz postparto</li>
             <li>Manejo de incontinencia urinaria</li>
           </ul>
-
-          <a href="molestias-intimas.html" class="symptom-link" aria-label="Más información sobre molestias íntimas">
-            <span class="symptom-icon">♡</span>
-            <span class="symptom-content">
-              <span class="symptom-title">Molestias íntimas <span class="arrow">↗</span></span>
-              <span class="symptom-text">Incomodidad, irritación o sensibilidad en el área íntima que afecta tu bienestar diario.</span>
-            </span>
-          </a>
         </div>
         <div class="card">
           <img src="vph.png" alt="Prevención y Diagnóstico del VPH" class="service-img">
