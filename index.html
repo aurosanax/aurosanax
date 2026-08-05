@@ -912,51 +912,6 @@
       }
     }
 
-    /* ===== AUROSANAX - INTEGRACIÓN FORMULARIO ERP ===== */
-    .erp-booking-shell {
-      background: linear-gradient(180deg, #fff8fb, #ffffff);
-      border: 1px solid var(--borde-rosado);
-      border-radius: 22px;
-      padding: 12px;
-      box-shadow: 0 10px 28px rgba(200, 61, 130, 0.11);
-      margin-top: 1.5rem;
-      overflow: hidden;
-    }
-
-    .erp-booking-frame {
-      display: block;
-      width: 100%;
-      min-height: 1250px;
-      border: 0;
-      border-radius: 16px;
-      background: #ffffff;
-    }
-
-    .erp-booking-note {
-      margin: 0 0 12px;
-      color: #666;
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    @media (max-width: 920px) {
-      .erp-booking-shell {
-        padding: 8px;
-        border-radius: 18px;
-      }
-
-      .erp-booking-frame {
-        min-height: 2050px;
-        border-radius: 14px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .erp-booking-frame {
-        min-height: 2350px;
-      }
-    }
-
   </style>
 </head>
 
@@ -1003,7 +958,7 @@
         con cita previa.
       </p>
 
-      <a href="#agendar-cita" class="button">Agenda tu cita</a>
+      <a href="formulariocita.html" class="button">Agenda tu cita</a>
     </div>
   </div>
 
@@ -1188,23 +1143,13 @@
       <h2>Agenda tu cita</h2>
 
       <p>
-        Seleccione el profesional, servicio, fecha y horario disponible.
-        La reserva se registrará directamente en el sistema de AUROSANAX.
+        Abra el formulario de reservas de AUROSANAX en pantalla completa
+        para seleccionar médico, servicio, fecha y horario disponible.
       </p>
 
-      <div class="erp-booking-shell">
-        <p class="erp-booking-note">
-          Formulario seguro de citas AUROSANAX.
-        </p>
-
-        <iframe
-          class="erp-booking-frame"
-          src="formulariocita.html"
-          title="Formulario de citas AUROSANAX"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
-      </div>
+      <a href="formulariocita.html" class="button">
+        Abrir formulario de citas
+      </a>
     </section>
 
 
