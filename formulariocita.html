@@ -1015,14 +1015,67 @@
       return soloDigitos(p?.whatsapp || p?.telefono || p?.celular || '');
     }
 
+    /* ===== AUROSANAX - CONTROL QUIRÚRGICO DE IDENTIDAD =====
+       La cédula/documento identifica al paciente.
+       El teléfono NO se usa como identificador único porque puede ser compartido
+       por familiares. No modifica guardado, API, estructura de datos ni agenda.
+    */
+    function normalizarNombreIdentidad(valor){
+      return String(valor || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toUpperCase()
+        .replace(/[^A-ZÑ ]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function nombrePacienteLocal(p){
+      return String(
+        p?.nombre_completo ||
+        p?.nombre_paciente ||
+        (((p?.nombres || '') + ' ' + (p?.apellidos || '')).trim()) ||
+        p?.nombre ||
+        ''
+      ).trim();
+    }
+
+    function buscarPacientePorDocumentoLocal(documento){
+      const doc = soloDigitos(documento);
+      if(!doc || !Array.isArray(pacientes)) return null;
+      return pacientes.find(p => documentoPacienteLocal(p) === doc) || null;
+    }
+
+    function validarIdentidadDocumentoLocal(data){
+      const existente = buscarPacientePorDocumentoLocal(data?.numero_documento);
+      if(!existente) return {ok:true, paciente:null};
+
+      const nombreRegistrado = nombrePacienteLocal(existente);
+      const nombreIngresado = String(data?.nombre_completo || '').trim();
+
+      const a = normalizarNombreIdentidad(nombreRegistrado);
+      const b = normalizarNombreIdentidad(nombreIngresado);
+
+      if(a && b && a !== b){
+        return {
+          ok:false,
+          paciente:existente,
+          mensaje:
+            'La cédula ingresada ya pertenece a otro paciente registrado: <b>' +
+            nombreRegistrado.replace(/</g,'&lt;').replace(/>/g,'&gt;') +
+            '</b>. Verifique la cédula o los nombres antes de continuar.'
+        };
+      }
+
+      return {ok:true, paciente:existente};
+    }
+
     function buscarPacientesRelacionadosLocal(data){
       const doc = soloDigitos(data?.numero_documento || data?.cedula || data?.documento || '');
-      const wa = soloDigitos(data?.whatsapp || data?.telefono || '');
       const lista = Array.isArray(pacientes) ? pacientes : [];
       return lista.filter(p => {
         const pDoc = documentoPacienteLocal(p);
-        const pTel = telefonoPacienteLocal(p);
-        return (doc && pDoc && pDoc === doc) || (wa && pTel && pTel === wa);
+        return !!(doc && pDoc && pDoc === doc);
       });
     }
 
@@ -1159,9 +1212,6 @@
           if(doc && cDoc && cDoc === doc){
             return {tipo:'paciente_dia', cita:c, mensaje:'Ya existe una cita activa para esta cédula en la fecha seleccionada.'};
           }
-          if(wa && cTel && cTel === wa){
-            return {tipo:'paciente_dia', cita:c, mensaje:'Ya existe una cita activa para este WhatsApp en la fecha seleccionada.'};
-          }
           if(cIdPaciente && idsPaciente.has(cIdPaciente)){
             return {tipo:'paciente_dia', cita:c, mensaje:'Ya existe una cita activa para este paciente en la fecha seleccionada.'};
           }
@@ -1227,7 +1277,6 @@
 
       return !!(
         (doc && cDoc && doc === cDoc) ||
-        (wa && cTel && wa === cTel) ||
         (cIdPaciente && idsPaciente.has(cIdPaciente))
       );
     }
@@ -1329,6 +1378,14 @@
 
       if(!validarFormularioAntesDeEnviar(data)) return;
 
+      const identidadInicial = validarIdentidadDocumentoLocal(data);
+      if(!identidadInicial.ok){
+        marcarCampoError('numero_documento');
+        marcarCampoError('nombre_completo');
+        setStatus('err','<i class="bi bi-person-x-fill me-1"></i> ' + identidadInicial.mensaje);
+        return;
+      }
+
       const duplicada = citaDuplicadaLocal(data);
       if(duplicada){
         setStatus('err', mensajeDuplicidadReserva(duplicada));
@@ -1357,6 +1414,14 @@
           throw new Error('Este horario ya no está disponible o ya expiró. Por favor seleccione otro horario.');
         }
         data.id_disponibilidad = disponibleAhora.id_disponibilidad || data.id_disponibilidad || '';
+
+        const identidadActual = validarIdentidadDocumentoLocal(data);
+        if(!identidadActual.ok){
+          marcarCampoError('numero_documento');
+          marcarCampoError('nombre_completo');
+          setStatus('err','<i class="bi bi-person-x-fill me-1"></i> ' + identidadActual.mensaje);
+          return;
+        }
 
         const duplicadaActual = citaDuplicadaLocal(data);
         if(duplicadaActual){
