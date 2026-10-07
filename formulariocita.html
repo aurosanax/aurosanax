@@ -24,6 +24,19 @@
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fff7fb,#f8fafc);color:var(--text);min-height:100vh}
     .page{min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:22px}
+    /* AUROSANAX - PRIVACIDAD FORMULARIO: bloque aislado, sin alterar lógica clínica/agenda */
+    .privacy-box{margin-top:14px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:#fff}
+    .privacy-check{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.45;color:var(--text)}
+    .privacy-check input{margin-top:3px;flex:0 0 auto}
+    .privacy-link{border:0;background:transparent;padding:0;color:var(--primary);font-weight:800;text-decoration:underline;cursor:pointer}
+    .privacy-error{border-color:#fecaca;background:#fff7f7}
+    .privacy-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(15,23,42,.55)}
+    .privacy-modal.open{display:flex}
+    .privacy-card{width:min(620px,100%);max-height:85vh;overflow:auto;background:#fff;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(15,23,42,.28)}
+    .privacy-card h4{margin:0 0 12px;color:var(--primary);font-weight:900}
+    .privacy-card p{font-size:14px;line-height:1.55;margin:0 0 10px}
+    .privacy-close{width:100%;margin-top:8px;border:0;border-radius:12px;padding:11px 14px;background:var(--primary);color:#fff;font-weight:800}
+    #citaForm.reserva-completada > #privacyBox{display:none!important}
     .shell{width:min(1180px,100%);display:grid;grid-template-columns:360px 1fr;gap:18px;align-items:start}
     .hero{border-radius:28px;padding:28px;background:linear-gradient(135deg,#7a174f,#c23b83);color:#fff;box-shadow:0 25px 70px rgba(139,30,90,.22);position:sticky;top:20px;overflow:hidden;height:fit-content}
     .hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.13);right:-90px;top:-80px}
@@ -322,20 +335,34 @@
 
             <div class="row g-3">
               <div class="col-md-6">
-                <label class="form-label">Cédula / documento *</label>
-                <input id="numero_documento" type="text" inputmode="numeric" maxlength="10" class="form-control" required placeholder="Ej. 0912345678" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
-                <div class="micro-help">10 dígitos, sin espacios ni guiones.</div>
+                <div>
+                  <label class="form-label">Cédula / documento *</label>
+                  <input id="numero_documento" type="text" inputmode="numeric" maxlength="10" class="form-control" required placeholder="Ej. 0912345678" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
+                  <div class="micro-help">10 dígitos, sin espacios ni guiones.</div>
+                </div>
+
+                <div class="mt-3">
+                  <label class="form-label">WhatsApp / teléfono *</label>
+                  <input id="whatsapp" type="text" inputmode="numeric" maxlength="10" autocomplete="off" class="form-control" required placeholder="Ej. 0999999999" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
+                  <div class="micro-help">10 dígitos y empieza con 09. Ej. 0991234567.</div>
+                </div>
               </div>
+
               <div class="col-md-6">
-                <label class="form-label">Nombres completos *</label>
-                <input id="nombre_completo" class="form-control" required autocomplete="name" placeholder="Nombre y apellido">
+                <div>
+                  <label class="form-label">Nombres *</label>
+                  <input id="nombres" class="form-control" required autocomplete="given-name" placeholder="Ej. María Fernanda">
+                  <div class="micro-help">Escriba únicamente sus nombres, como constan en su cédula.</div>
+                </div>
+
+                <div class="mt-3">
+                  <label class="form-label">Apellidos *</label>
+                  <input id="apellidos" class="form-control" required autocomplete="family-name" placeholder="Ej. Del Castillo Ortiz">
+                  <div class="micro-help">Escriba únicamente sus apellidos, como constan en su cédula.</div>
+                </div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label">WhatsApp / teléfono *</label>
-                <input id="whatsapp" type="text" inputmode="numeric" maxlength="10" autocomplete="off" class="form-control" required placeholder="Ej. 0999999999" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)">
-                <div class="micro-help">10 dígitos y empieza con 09. Ej. 0991234567.</div>
-              </div>
-              <div class="col-md-6">
+
+              <div class="col-12">
                 <label class="form-label">Correo opcional</label>
                 <input id="email" type="email" class="form-control" autocomplete="email" placeholder="correo@ejemplo.com">
               </div>
@@ -351,6 +378,13 @@
             Al reservar, el horario queda apartado y deja de estar disponible para otros pacientes. Secretaría revisará los datos y confirmará los detalles por WhatsApp.
           </div>
 
+          <div id="privacyBox" class="privacy-box">
+            <label class="privacy-check" for="acepta_privacidad">
+              <input id="acepta_privacidad" type="checkbox" onchange="if(this.checked){document.getElementById('privacyBox')?.classList.remove('privacy-error')}">
+              <span>He leído y acepto el tratamiento de mis datos personales para gestionar mi solicitud de cita, conforme al <button type="button" class="privacy-link" onclick="abrirAvisoPrivacidad(event)">Aviso de Privacidad de AurosanaxMedic</button>.</span>
+            </label>
+          </div>
+
           <div id="statusBox" class="status"></div>
 
           <div id="formMainActions" class="d-flex gap-2 flex-wrap mt-4">
@@ -358,7 +392,19 @@
             <button type="button" class="btn-line" onclick="cargarDatosIniciales()"><i class="bi bi-arrow-clockwise me-1"></i> Actualizar horarios</button>
           </div>
         </form>
-        <div class="demo" id="pieCentroFormulario">Formulario web de citas</div>
+
+        <div id="privacyModal" class="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" onclick="cerrarAvisoPrivacidadFondo(event)">
+          <div class="privacy-card">
+            <h4 id="privacyTitle">Aviso de Privacidad de AurosanaxMedic</h4>
+            <p><b>Responsable del tratamiento:</b> Dra. Aurora Andagoya Murillo, profesional de la salud.</p>
+            <p>Los datos ingresados en este formulario se utilizan para identificar al paciente, gestionar la solicitud de cita, coordinar la atención y comunicarse respecto de la reserva.</p>
+            <p>La información será tratada de forma confidencial y únicamente para las finalidades relacionadas con la gestión de la cita y la atención correspondiente, conforme a la normativa ecuatoriana aplicable sobre protección de datos personales.</p>
+            <p>El titular puede ejercer los derechos reconocidos por la normativa de protección de datos a través de los canales oficiales de atención de AurosanaxMedic.</p>
+            <button type="button" class="privacy-close" onclick="cerrarAvisoPrivacidad()">Cerrar</button>
+          </div>
+        </div>
+
+        <div class="demo" id="pieCentroFormulario">© 2026 AurosanaxMedic · Formulario web de citas · Privacidad y protección de datos</div>
       </main>
     </div>
   </div>
@@ -504,7 +550,7 @@
       if(nombreEl) nombreEl.textContent = nombre;
       if(tituloEl) tituloEl.textContent = 'Agenda tu cita | ' + nombre;
       document.title = 'Agenda tu cita | ' + nombre;
-      if(pieEl) pieEl.textContent = nombre + ' · Formulario web de citas';
+      if(pieEl) pieEl.textContent = '© 2026 ' + nombre + ' · Formulario web de citas · Privacidad y protección de datos';
 
       mostrarContactoCentro('centroDireccion', direccion);
       mostrarContactoCentro('centroEmail', email);
@@ -785,27 +831,19 @@
         // Con el médico ya visible/seleccionado, iniciar inmediatamente sus servicios.
         const cargaServicios = cargarServiciosMedico();
 
-        // AUROSANAX - CALENDARIO MÓVIL PRIORITARIO
-        // La disponibilidad ya venía cargándose en paralelo. Apenas termina,
-        // pintar el calendario sin esperar citas, pacientes ni servicios.
-        // Esas cargas continúan intactas en segundo plano para sus validaciones.
-        const resultadoDisponibilidad = await Promise.allSettled([cargaDisponibilidad]);
-        disponibilidad = resultadoDisponibilidad[0].status === 'fulfilled' && Array.isArray(resultadoDisponibilidad[0].value)
-          ? resultadoDisponibilidad[0].value
-          : [];
-
-        sincronizarMiniDesdeInput();
-        renderHorasDisponibles();
-
         const restantes = await Promise.allSettled([
+          cargaDisponibilidad,
           cargaCitas,
           cargaPacientes
         ]);
 
-        citas = restantes[0].status === 'fulfilled' && Array.isArray(restantes[0].value) ? restantes[0].value : [];
-        pacientes = restantes[1].status === 'fulfilled' && Array.isArray(restantes[1].value) ? restantes[1].value : [];
+        disponibilidad = restantes[0].status === 'fulfilled' && Array.isArray(restantes[0].value) ? restantes[0].value : [];
+        citas = restantes[1].status === 'fulfilled' && Array.isArray(restantes[1].value) ? restantes[1].value : [];
+        pacientes = restantes[2].status === 'fulfilled' && Array.isArray(restantes[2].value) ? restantes[2].value : [];
 
         await cargaServicios;
+        sincronizarMiniDesdeInput();
+        renderHorasDisponibles();
       }catch(e){
         console.error(e);
         setStatus('err','<i class="bi bi-exclamation-triangle me-1"></i> No se pudieron cargar los horarios. ' + e.message);
@@ -976,7 +1014,7 @@
     }
 
     function limpiarErroresCampos(){
-      ['numero_documento','nombre_completo','whatsapp','email','id_medico','fecha_cita','servicio'].forEach(id => {
+      ['numero_documento','nombres','apellidos','whatsapp','email','id_medico','fecha_cita','servicio'].forEach(id => {
         const el = document.getElementById(id);
         if(el) el.classList.remove('field-error');
       });
@@ -1008,9 +1046,19 @@
       const c = soloDigitos(cedula);
       if(!/^\d{10}$/.test(c)) return false;
 
+      /*
+        AUROSANAX - VALIDACIÓN NUI/CÉDULA ECUADOR ACTUALIZADA
+        Ajuste quirúrgico:
+        - Conserva 10 dígitos y módulo 10.
+        - Admite códigos territoriales 01-24 y 30 (consulados/exterior).
+        - Admite tercer dígito 6 para cédulas/NUI de extranjeros reportadas
+          por Gobierno Electrónico, evitando la antigua restricción < 6.
+        - No admite tercer dígito 7, 8 o 9 en este campo de cédula/NUI.
+      */
       const provincia = parseInt(c.substring(0, 2), 10);
       const tercerDigito = parseInt(c[2], 10);
-      if(provincia < 1 || provincia > 24 || tercerDigito >= 6) return false;
+      const provinciaValida = (provincia >= 1 && provincia <= 24) || provincia === 30;
+      if(!provinciaValida || tercerDigito > 6) return false;
 
       let suma = 0;
       for(let i = 0; i < 9; i++){
@@ -1082,24 +1130,67 @@
       return pacientes.find(p => documentoPacienteLocal(p) === doc) || null;
     }
 
+    /* AUROSANAX - REFORMA ANTIRREGRESIVA DE IDENTIDAD
+       - La cédula continúa siendo la llave primaria de identidad.
+       - No revela el nombre maestro en mensajes públicos.
+       - Tolera omisiones seguras, pero nunca sustituciones de palabras.
+       - No modifica el paciente maestro ni el flujo de agenda/guardado.
+    */
+    function tokensNombreIdentidad(valor){
+      const n = normalizarNombreIdentidad(valor);
+      return n ? n.split(' ').filter(Boolean) : [];
+    }
+
+    function esSubsecuenciaIdentidad(ingresados, registrados){
+      if(!ingresados.length || !registrados.length) return false;
+      let j = 0;
+      for(const token of registrados){
+        if(token === ingresados[j]) j++;
+        if(j === ingresados.length) return true;
+      }
+      return false;
+    }
+
+    function nombreCompatibleConPaciente(data, paciente){
+      const nombresMaestro = tokensNombreIdentidad(paciente?.nombres || '');
+      const apellidosMaestro = tokensNombreIdentidad(paciente?.apellidos || '');
+      const nombresIngresados = tokensNombreIdentidad(data?.nombres || '');
+      const apellidosIngresados = tokensNombreIdentidad(data?.apellidos || '');
+
+      // Ruta nueva: nombres y apellidos llegan separados desde el formulario.
+      // No se intenta adivinar dónde empiezan los apellidos.
+      if(nombresMaestro.length && apellidosMaestro.length){
+        if(!nombresIngresados.length || !apellidosIngresados.length) return false;
+
+        // Primer nombre y primer componente del apellido deben coincidir.
+        if(nombresIngresados[0] !== nombresMaestro[0]) return false;
+        if(apellidosIngresados[0] !== apellidosMaestro[0]) return false;
+
+        // Los nombres adicionales pueden omitirse, pero no sustituirse ni inventarse.
+        if(!esSubsecuenciaIdentidad(nombresIngresados, nombresMaestro)) return false;
+
+        // Los apellidos ingresados deben respetar el orden registrado.
+        if(apellidosIngresados.length > apellidosMaestro.length) return false;
+        if(!apellidosIngresados.every((t, i) => t === apellidosMaestro[i])) return false;
+
+        return true;
+      }
+
+      // Respaldo antirregresivo para pacientes históricos sin nombres/apellidos estructurados.
+      const maestro = normalizarNombreIdentidad(nombrePacienteLocal(paciente));
+      const ingresado = normalizarNombreIdentidad(data?.nombre_completo || '');
+      return !!(maestro && ingresado === maestro);
+    }
+
     function validarIdentidadDocumentoLocal(data){
       const existente = buscarPacientePorDocumentoLocal(data?.numero_documento);
       if(!existente) return {ok:true, paciente:null};
 
-      const nombreRegistrado = nombrePacienteLocal(existente);
-      const nombreIngresado = String(data?.nombre_completo || '').trim();
-
-      const a = normalizarNombreIdentidad(nombreRegistrado);
-      const b = normalizarNombreIdentidad(nombreIngresado);
-
-      if(a && b && a !== b){
+      if(!nombreCompatibleConPaciente(data, existente)){
         return {
           ok:false,
           paciente:existente,
-          mensaje:
-            'La cédula ingresada ya pertenece a otro paciente registrado: <b>' +
-            nombreRegistrado.replace(/</g,'&lt;').replace(/>/g,'&gt;') +
-            '</b>. Verifique la cédula o los nombres antes de continuar.'
+          mensaje:'Los datos ingresados no coinciden con el registro existente. Verifique su número de cédula, nombres y apellidos.'
         };
       }
 
@@ -1164,6 +1255,36 @@
       return p ? soloDigitos(p.whatsapp || p.telefono || p.celular || '') : '';
     }
 
+    /* AUROSANAX - PRIVACIDAD: validación independiente y aditiva.
+       No modifica cédula, teléfono, identidad, duplicidad, disponibilidad ni guardado. */
+    function abrirAvisoPrivacidad(event){
+      if(event){ event.preventDefault(); event.stopPropagation(); }
+      const modal = document.getElementById('privacyModal');
+      if(modal) modal.classList.add('open');
+    }
+
+    function cerrarAvisoPrivacidad(){
+      const modal = document.getElementById('privacyModal');
+      if(modal) modal.classList.remove('open');
+    }
+
+    function cerrarAvisoPrivacidadFondo(event){
+      if(event && event.target && event.target.id === 'privacyModal') cerrarAvisoPrivacidad();
+    }
+
+    function validarAceptacionPrivacidad(){
+      const check = document.getElementById('acepta_privacidad');
+      const box = document.getElementById('privacyBox');
+      if(check && check.checked){
+        if(box) box.classList.remove('privacy-error');
+        return true;
+      }
+      if(box) box.classList.add('privacy-error');
+      setStatus('err','<i class="bi bi-shield-lock me-1"></i> Para continuar, lea y acepte el tratamiento de sus datos personales.');
+      if(box) box.scrollIntoView({behavior:'smooth', block:'center'});
+      return false;
+    }
+
     function validarFormularioAntesDeEnviar(data){
       limpiarErroresCampos();
       const errores = [];
@@ -1181,12 +1302,18 @@
         marcarCampoError('numero_documento');
       }
 
-      if(!data.nombre_completo){
-        errores.push('Ingrese nombres completos.');
-        marcarCampoError('nombre_completo');
-      } else if(!nombreCompletoValido(data.nombre_completo)){
-        errores.push('Ingrese nombre y apellido. Mínimo 2 palabras y 8 caracteres.');
-        marcarCampoError('nombre_completo');
+      if(!data.nombres){
+        errores.push('Ingrese los nombres del paciente.');
+        marcarCampoError('nombres');
+      }
+      if(!data.apellidos){
+        errores.push('Ingrese los apellidos del paciente.');
+        marcarCampoError('apellidos');
+      }
+      if(data.nombres && data.apellidos && !nombreCompletoValido(data.nombre_completo)){
+        errores.push('Revise nombres y apellidos.');
+        marcarCampoError('nombres');
+        marcarCampoError('apellidos');
       }
 
       if(!data.whatsapp){
@@ -1396,7 +1523,12 @@
 
       const data = {
         numero_documento: document.getElementById('numero_documento').value.trim(),
-        nombre_completo: document.getElementById('nombre_completo').value.trim(),
+        nombres: document.getElementById('nombres').value.trim().replace(/\s+/g, ' '),
+        apellidos: document.getElementById('apellidos').value.trim().replace(/\s+/g, ' '),
+        nombre_completo: [
+          document.getElementById('nombres').value.trim().replace(/\s+/g, ' '),
+          document.getElementById('apellidos').value.trim().replace(/\s+/g, ' ')
+        ].filter(Boolean).join(' '),
         whatsapp: document.getElementById('whatsapp').value.trim(),
         telefono: document.getElementById('whatsapp').value.trim(),
         email: document.getElementById('email').value.trim(),
@@ -1413,12 +1545,14 @@
         observaciones: document.getElementById('observaciones').value.trim()
       };
 
+      if(!validarAceptacionPrivacidad()) return;
       if(!validarFormularioAntesDeEnviar(data)) return;
 
       const identidadInicial = validarIdentidadDocumentoLocal(data);
       if(!identidadInicial.ok){
         marcarCampoError('numero_documento');
-        marcarCampoError('nombre_completo');
+        marcarCampoError('nombres');
+        marcarCampoError('apellidos');
         setStatus('err','<i class="bi bi-person-x-fill me-1"></i> ' + identidadInicial.mensaje);
         desplazarPrimerErrorFormulario();
         return;
@@ -1456,7 +1590,8 @@
         const identidadActual = validarIdentidadDocumentoLocal(data);
         if(!identidadActual.ok){
           marcarCampoError('numero_documento');
-          marcarCampoError('nombre_completo');
+          marcarCampoError('nombres');
+        marcarCampoError('apellidos');
           setStatus('err','<i class="bi bi-person-x-fill me-1"></i> ' + identidadActual.mensaje);
           desplazarPrimerErrorFormulario();
           return;
